@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Da era das personas para a era das pessoas — Gustavo Avelar + Rafael Maryink · Mundo RD 2026</title>
+  <meta name="description" content="Gustavo Avelar (CEO RD Station) e Rafael Maryink (NP Digital) sobre a redução do tráfego orgânico, as múltiplas interfaces de consumo e por que o marketing de personas chegou ao fim.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+  <style>
+    :root {
+      --bg: #FAFAF9;
+      --surface: #FFFFFF;
+      --surface-2: #F4F3F0;
+      --text-primary: #1A1A1F;
+      --text-secondary: #5F5E5A;
+      --text-tertiary: #888780;
+      --border: rgba(0,0,0,0.08);
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 20px;
+
+      --mrd-petroleo: #022538;
+      --mrd-petroleo-2: #043247;
+      --mrd-cyan: #00C9F2;
+      --mrd-cyan-dark: #006B82;
+      --mrd-cyan-soft: #D4F5FB;
+      --mrd-roxo: #A35CFF;
+      --mrd-roxo-dark: #6826B5;
+      --mrd-roxo-soft: #EFE6FF;
+      --mrd-lima: #D7F26B;
+      --mrd-lima-dark: #5F7912;
+      --mrd-lima-soft: #F0F8D2;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text-primary); margin: 0; padding: 0; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4 { font-weight: 500; margin: 0; }
+    a { color: var(--mrd-cyan-dark); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .topnav { background: var(--mrd-petroleo); padding: 14px 0; position: sticky; top: 0; z-index: 10; box-shadow: 0 1px 0 rgba(255,255,255,0.05); }
+    .topnav-inner { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .topnav-logo { height: 28px; }
+    .topnav-links { display: flex; gap: 1.5rem; }
+    .topnav-link { font-size: 13.5px; color: rgba(255,255,255,0.78); font-weight: 500; transition: color .15s; }
+    .topnav-link:hover { color: var(--mrd-cyan); text-decoration: none; }
+
+    .crumb { background: var(--mrd-petroleo); padding: 0 0 1rem; }
+    .crumb-inner { max-width: 880px; margin: 0 auto; padding: 0 1.5rem; font-size: 12.5px; color: rgba(255,255,255,0.55); }
+    .crumb-inner a { color: rgba(255,255,255,0.78); }
+    .crumb-inner a:hover { color: var(--mrd-cyan); }
+    .crumb-sep { margin: 0 6px; }
+
+    .palestra-hero {
+      background-color: var(--mrd-petroleo);
+      background-image: url('../assets/bloco-triangulos-cyan.png');
+      background-size: 540px;
+      background-position: right -120px center;
+      background-repeat: no-repeat;
+      position: relative;
+      padding: 2.5rem 0 4rem;
+      overflow: hidden;
+    }
+    .palestra-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(2,37,56,0.94) 0%, rgba(2,37,56,0.80) 55%, rgba(2,37,56,0.55) 100%);
+      pointer-events: none;
+    }
+    .palestra-hero-inner { max-width: 880px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 1; }
+    .palestra-palco-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+      background: var(--mrd-cyan); color: var(--mrd-petroleo);
+      padding: 5px 12px; border-radius: 999px; margin-bottom: 1.25rem;
+    }
+    .palestra-titulo {
+      font-size: clamp(28px, 4.2vw, 44px);
+      font-weight: 500; color: #fff;
+      line-height: 1.18; letter-spacing: -0.015em;
+      margin: 0 0 1.5rem; max-width: 760px;
+    }
+    .palestra-titulo .accent { color: var(--mrd-cyan); }
+    .palestra-dek { font-size: 17px; color: rgba(255,255,255,0.85); line-height: 1.6; max-width: 660px; margin: 0 0 1.75rem; }
+    .palestra-meta { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; font-size: 13px; color: rgba(255,255,255,0.7); }
+    .palestra-meta-item { display: inline-flex; align-items: center; gap: 6px; }
+    .palestra-meta-item i { color: var(--mrd-cyan); }
+    .palestra-tags { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 6px; }
+    .palestra-tags span { font-size: 11.5px; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.85); padding: 4px 10px; border-radius: 999px; }
+
+    .speakers-bar { background: var(--surface); border-bottom: 1px solid var(--border); }
+    .speakers-bar-inner {
+      max-width: 880px; margin: 0 auto; padding: 1.5rem;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .speaker { display: flex; align-items: flex-start; gap: 12px; }
+    .speaker-avatar { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 500; color: #fff; flex-shrink: 0; }
+    .speaker-avatar.avelar { background: var(--mrd-cyan-dark); }
+    .speaker-avatar.maryink { background: var(--mrd-roxo-dark); }
+    .speaker-info { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+    .speaker-role-tag { font-size: 10px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 2px; }
+    .speaker-name { font-size: 15.5px; font-weight: 500; color: var(--text-primary); line-height: 1.3; }
+    .speaker-bio { font-size: 12.5px; color: var(--text-secondary); line-height: 1.5; margin-top: 2px; }
+
+    .content { max-width: 880px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+    .tldr {
+      background: var(--mrd-cyan-soft);
+      border: 1px solid rgba(0,107,130,0.18);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 1.75rem; margin-bottom: 3.5rem;
+    }
+    .tldr-label { font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--mrd-cyan-dark); margin: 0 0 .5rem; }
+    .tldr-text { font-size: 17px; line-height: 1.65; color: var(--mrd-petroleo); margin: 0; }
+
+    .insight { margin-bottom: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
+    .insight:last-of-type { border-bottom: none; padding-bottom: 0; }
+    .insight-num { font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--mrd-cyan-dark); margin: 0 0 .75rem; }
+    .insight h2 { font-size: clamp(22px, 2.6vw, 28px); font-weight: 500; line-height: 1.25; letter-spacing: -0.01em; margin: 0 0 1.25rem; max-width: 700px; }
+    .insight p { font-size: 16.5px; line-height: 1.75; color: var(--text-primary); margin: 0 0 1.1rem; }
+    .insight p:last-child { margin-bottom: 0; }
+    .insight strong { font-weight: 500; }
+    .insight ul { margin: 0 0 1.1rem; padding: 0; list-style: none; }
+    .insight ul li { font-size: 16px; line-height: 1.7; color: var(--text-primary); padding: 6px 0 6px 26px; position: relative; }
+    .insight ul li::before { content: ''; position: absolute; left: 4px; top: 17px; width: 8px; height: 8px; border-radius: 50%; background: var(--mrd-cyan); }
+
+    /* Data card */
+    .data-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--mrd-cyan);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+    }
+    .data-card .src { font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--mrd-cyan-dark); margin: 0 0 .35rem; }
+    .data-card p { font-size: 15px; line-height: 1.6; color: var(--text-primary); margin: 0; }
+
+    /* Stat row — big numbers */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin: 1.5rem 0;
+    }
+    .stat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .stat-value { font-size: 32px; font-weight: 500; color: var(--mrd-cyan-dark); line-height: 1; margin: 0 0 .35rem; letter-spacing: -0.02em; }
+    .stat-label { font-size: 13px; color: var(--text-secondary); line-height: 1.4; margin: 0; }
+
+    /* Speaker quote */
+    .speaker-quote {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 14px;
+      margin: 1.25rem 0;
+      padding: 1.1rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--mrd-cyan);
+      border-radius: var(--radius-md);
+    }
+    .speaker-quote.avelar { border-left-color: var(--mrd-cyan); }
+    .speaker-quote.maryink { border-left-color: var(--mrd-roxo); }
+    .speaker-quote-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 500; color: #fff; align-self: flex-start;
+    }
+    .speaker-quote.avelar .speaker-quote-avatar { background: var(--mrd-cyan-dark); }
+    .speaker-quote.maryink .speaker-quote-avatar { background: var(--mrd-roxo-dark); }
+    .speaker-quote-content p { margin: 0 0 .35rem; font-size: 15.5px; line-height: 1.65; color: var(--text-primary); }
+    .speaker-quote-attr { font-size: 12px; color: var(--text-tertiary); font-weight: 500; }
+
+    /* Pull quote */
+    .pullquote {
+      margin: 3rem 0;
+      padding: 2.5rem 1.5rem;
+      background: var(--mrd-petroleo);
+      background-image: url('../assets/bloco-triangulos-cyan.png');
+      background-size: 360px;
+      background-position: right -80px bottom -100px;
+      background-repeat: no-repeat;
+      border-radius: var(--radius-xl);
+      position: relative; overflow: hidden;
+    }
+    .pullquote::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(2,37,56,0.88) 0%, rgba(2,37,56,0.7) 100%); pointer-events: none; }
+    .pullquote-inner { position: relative; z-index: 1; max-width: 660px; }
+    .pullquote-mark { font-size: 64px; line-height: 1; color: var(--mrd-cyan); font-weight: 500; margin-bottom: -16px; }
+    .pullquote-text { font-size: clamp(22px, 2.6vw, 28px); font-weight: 500; color: #fff; line-height: 1.35; letter-spacing: -0.01em; margin: 0 0 1rem; }
+    .pullquote-attr { font-size: 13.5px; color: rgba(255,255,255,0.7); }
+
+    /* Related */
+    .related { background: var(--surface-2); padding: 3rem 0 4rem; margin-top: 2rem; }
+    .related-inner { max-width: 880px; margin: 0 auto; padding: 0 1.5rem; }
+    .related-label { font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--mrd-cyan-dark); margin: 0 0 .5rem; }
+    .related-title { font-size: 22px; font-weight: 500; margin: 0 0 1.5rem; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+    .related-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.1rem 1.25rem; transition: border-color .15s, transform .15s; text-decoration: none; display: block; }
+    .related-card:hover { border-color: var(--mrd-cyan); text-decoration: none; transform: translateY(-1px); }
+    .related-card .tag { font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--mrd-cyan-dark); }
+    .related-card h4 { font-size: 15.5px; font-weight: 500; color: var(--text-primary); margin: .4rem 0 .25rem; line-height: 1.35; }
+    .related-card p { font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5; }
+
+    .media-strip { max-width: 880px; margin: 0 auto; padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; font-size: 13.5px; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
+    .media-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 500; background: var(--mrd-cyan-soft); color: var(--mrd-cyan-dark); }
+    .media-pill.off { background: var(--surface-2); color: var(--text-tertiary); }
+
+    .brand-footer { margin-top: 0; background-color: var(--mrd-petroleo); background-image: url('../assets/bg-monocromatico-cyan.png'); background-size: cover; background-position: center; background-blend-mode: multiply; position: relative; padding: 3rem 0; overflow: hidden; }
+    .brand-footer::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(2,37,56,0.55) 0%, rgba(2,37,56,0.85) 100%); pointer-events: none; }
+    .brand-footer-inner { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+    .brand-footer-logo { height: 36px; }
+    .brand-footer-text { font-size: 13px; color: rgba(255,255,255,0.78); line-height: 1.7; }
+    .brand-footer-text a { color: var(--mrd-cyan); }
+    .brand-footer-text a:hover { color: #fff; }
+
+    @media (max-width: 720px) {
+      .topnav-links { display: none; }
+      .palestra-hero { padding: 2rem 0 3rem; background-size: 360px; background-position: right -180px center; }
+      .content { padding: 2.5rem 1.25rem; }
+      .pullquote { padding: 2rem 1.5rem; }
+      .speaker-quote { grid-template-columns: 32px 1fr; gap: 10px; padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="topnav">
+    <div class="topnav-inner">
+      <a href="../index.html" style="display:flex;align-items:center;"><img class="topnav-logo" src="../assets/logo-mundo-rd.png" alt="Mundo RD Station 2026"></a>
+      <div class="topnav-links">
+        <a class="topnav-link" href="../index.html#palcos">Palcos</a>
+        <a class="topnav-link" href="../index.html#palestras">Palestras</a>
+        <a class="topnav-link" href="../index.html#sobre">Sobre o hub</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="palestra-hero">
+    <div class="crumb"><div class="crumb-inner">
+      <a href="../index.html">Hub</a> <span class="crumb-sep">›</span>
+      <a href="../index.html#palcos">Tendências</a> <span class="crumb-sep">›</span>
+      Gustavo Avelar &amp; Rafael Maryink
+    </div></div>
+    <div class="palestra-hero-inner">
+      <span class="palestra-palco-tag"><i class="ti ti-bolt"></i> Tendências</span>
+      <h1 class="palestra-titulo">Da era das personas <span class="accent">para a era das pessoas.</span></h1>
+      <p class="palestra-dek">
+        Gustavo Avelar (CEO RD Station) sobe ao palco com Rafael Maryink (NP Digital) para mapear o que mudou no marketing — múltiplas interfaces de consumo, queda do tráfego orgânico, novos dados e por que o playbook que funcionava semana passada já não serve mais.
+      </p>
+      <div class="palestra-meta">
+        <span class="palestra-meta-item"><i class="ti ti-users"></i> 2 participantes</span>
+        <span class="palestra-meta-item"><i class="ti ti-calendar"></i> 04 ago 2026 · 14:00</span>
+        <span class="palestra-meta-item"><i class="ti ti-clock"></i> ~45 min</span>
+      </div>
+      <div class="palestra-tags">
+        <span>tráfego orgânico</span>
+        <span>SEO</span>
+        <span>LLMs</span>
+        <span>atribuição</span>
+        <span>hiperpersonalização</span>
+        <span>marketing de longo prazo</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="speakers-bar">
+    <div class="speakers-bar-inner">
+      <div class="speaker">
+        <div class="speaker-avatar avelar">GA</div>
+        <div class="speaker-info">
+          <span class="speaker-role-tag">Anfitrião</span>
+          <span class="speaker-name">Gustavo Avelar</span>
+          <span class="speaker-bio">CEO da RD Station. Mineiro, fala que se sente mais à vontade em mesa de bar do que em palco. Conduziu a abertura do dia 2.</span>
+        </div>
+      </div>
+      <div class="speaker">
+        <div class="speaker-avatar maryink">RM</div>
+        <div class="speaker-info">
+          <span class="speaker-role-tag">Convidado</span>
+          <span class="speaker-name">Rafael Maryink</span>
+          <span class="speaker-bio">Sócio do Neil Patel, fundou a NP Digital no Brasil em 2015. Hoje a NP atua em 20 países com cerca de mil colaboradores. Também mineiro — coincidência ou não.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="media-strip">
+    <strong style="color:var(--text-primary);font-weight:500;">Mídia desta sessão:</strong>
+    <span class="media-pill"><i class="ti ti-microphone-2"></i> Áudio</span>
+    <span class="media-pill off"><i class="ti ti-video-off"></i> Vídeo não disponível</span>
+    <span class="media-pill off"><i class="ti ti-presentation-off"></i> Slides não disponíveis</span>
+  </div>
+
+  <main class="content">
+
+    <div class="tldr">
+      <p class="tldr-label">A tese em uma frase</p>
+      <p class="tldr-text">O cliente compra por dezenas de interfaces diferentes — e a IA vai impactar todas. O caminho não é trocar canal, é diversificar com método. Sair do <em>last click</em>, sair das personas, sair do playbook fixo. O futuro do marketing é hiperpersonalizado, multicanal e construído a quatro mãos com o cliente.</p>
+    </div>
+
+    <article class="insight">
+      <p class="insight-num">Insight 01</p>
+      <h2>O cliente compra por dezenas de interfaces diferentes — e a IA vai impactar todas.</h2>
+      <p>Avelar abriu lembrando a evolução: até início dos anos 90, tinha três formas de comprar — porta-a-porta, loja física, televendas. Hoje compra-se pela tela da geladeira, pelo carro, pelo WhatsApp, pela Alexa, conversando com IA. A multiplicação das interfaces de consumo não tem precedente — e a IA vai redesenhar todas elas, sem exceção.</p>
+      <div class="speaker-quote avelar">
+        <div class="speaker-quote-avatar">GA</div>
+        <div class="speaker-quote-content">
+          <p>"A gente vive um contexto de multiplicidade de formas de consumo nunca antes vistas. E a IA vai impactar todas elas, sem exceção."</p>
+          <span class="speaker-quote-attr">Gustavo Avelar</span>
+        </div>
+      </div>
+      <p>Outro ponto fora da curva é a velocidade da adoção. O PC e a primeira internet levaram décadas pra chegar nas casas — eram caros. A IA, não:</p>
+      <div class="stat-row">
+        <div class="stat">
+          <p class="stat-value">2,5 anos</p>
+          <p class="stat-label">Instagram para 100 milhões de usuários</p>
+        </div>
+        <div class="stat">
+          <p class="stat-value">&lt; 2 meses</p>
+          <p class="stat-label">ChatGPT para os mesmos 100 milhões</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="insight">
+      <p class="insight-num">Insight 02</p>
+      <h2>O Google não é mais hegemonia. E parar no <em>last click</em> custa caro.</h2>
+      <p>O slide mais provocador foi o do Maryink: o Google representa hoje 27% das buscas diárias. O resto vai pra Reddit, ChatGPT, TikTok, YouTube. O cliente é multiplataforma — e o profissional de marketing que segue avaliando tudo só pelo <em>last click</em> no GA4 vai tomar decisão errada.</p>
+      <div class="data-card">
+        <p class="src">NP Digital · análise com 11 milhões de usuários</p>
+        <p>Desses, <strong>34,6%</strong> fizeram busca por produto e <strong>não clicaram em lugar nenhum</strong>. Dentro deles, <strong>14,1% compraram em outro canal</strong> — loja física, indicação, busca direta no app.</p>
+      </div>
+      <div class="speaker-quote maryink">
+        <div class="speaker-quote-avatar">RM</div>
+        <div class="speaker-quote-content">
+          <p>"Não se baseiem num modelo único de atribuição, porque vocês vão tomar as decisões erradas. E se tem uma coisa decepcionante pro marketing é perder o poder de decisão pra outro cargo."</p>
+          <span class="speaker-quote-attr">Rafael Maryink</span>
+        </div>
+      </div>
+      <p>Avelar trouxe um dado interno da RD que dá a dimensão do problema. Em parceria com a Solomon, analisou a base de clientes RD e descobriu:</p>
+      <div class="data-card">
+        <p class="src">RD Station + Solomon · análise da base RD</p>
+        <p>Dois anos atrás, pra cada lead orgânico vinham 2 leads pagos. <strong>Hoje, pra cada lead orgânico vêm 4 leads pagos.</strong> O peso da mídia paga dobrou — e o lead orgânico ainda é consideravelmente mais barato, considerando inclusive o custo de ferramenta.</p>
+      </div>
+    </article>
+
+    <div class="pullquote">
+      <div class="pullquote-inner">
+        <div class="pullquote-mark">"</div>
+        <p class="pullquote-text">Em um mundo inundado por IA, o fator humano diz muito. A gente nunca foi tão influenciado por outras pessoas na história.</p>
+        <p class="pullquote-attr">— Gustavo Avelar, sobre o paradoxo da era atual</p>
+      </div>
+    </div>
+
+    <article class="insight">
+      <p class="insight-num">Insight 03</p>
+      <h2>O canal velho não morreu. Email marketing ainda converte 11x mais que rede social.</h2>
+      <p>Outro mito que caiu na conversa: a ideia de que tudo é IA agora, que email morreu, que rede social é tudo. Maryink trouxe dado contra-intuitivo da NP Digital — pra amostra analisada, email marketing converte 11 vezes mais que redes sociais.</p>
+      <div class="speaker-quote maryink">
+        <div class="speaker-quote-avatar">RM</div>
+        <div class="speaker-quote-content">
+          <p>"Não é abandonar redes sociais. A conversa pode começar nas redes, migrar pra uma newsletter, e a venda acontecer no site. Pensem em multicanal e multi-formato — não em substituição."</p>
+          <span class="speaker-quote-attr">Rafael Maryink</span>
+        </div>
+      </div>
+      <p>E o B2B exige paciência ainda maior. A NP analisou mais de 800 empresas pra mapear quantas interações antes da venda:</p>
+      <div class="stat-row">
+        <div class="stat">
+          <p class="stat-value">16 interações</p>
+          <p class="stat-label">média no B2B com ticket acima de US$ 10 mil</p>
+        </div>
+        <div class="stat">
+          <p class="stat-value">23 interações</p>
+          <p class="stat-label">média no B2C com ticket acima de US$ 10 mil</p>
+        </div>
+      </div>
+      <p>Cada uma dessas interações deixa rastro de dado. Quem não coleta, organiza e cruza essa informação de jeito inteligente, joga campanha no escuro. <strong>Quanto mais plataformas trabalhadas, maior o ROI</strong> — e, na base de clientes da NP, quanto menos interações teve antes da venda, maior o churn depois.</p>
+    </article>
+
+    <article class="insight">
+      <p class="insight-num">Insight 04</p>
+      <h2>Construção de marca é trabalho de longo prazo. Não tem atalho.</h2>
+      <p>Maryink abriu a sessão com uma pergunta direta pra plateia: "quem já leu um conteúdo do Neil Patel em português?". Várias mãos pra cima. Quem nunca leu? Várias mãos pra cima também. E aí ele jogou:</p>
+      <div class="speaker-quote maryink">
+        <div class="speaker-quote-avatar">RM</div>
+        <div class="speaker-quote-content">
+          <p>"Estamos há 10 anos atuando no Brasil. Você não é culpado de não ter lido — é trabalho de longo prazo, é construção de marca. Significa que ainda tem gente pra conversar."</p>
+          <span class="speaker-quote-attr">Rafael Maryink</span>
+        </div>
+      </div>
+      <p>A NP cruzou percepção de marca em 520 empresas B2B e B2C, comparando empresas de 1 ano com empresas de 10+ anos. A diferença é gritante. <strong>Equilibre longo com curto prazo</strong> — meta tem que bater, mas marca que se constrói só em performance não escala.</p>
+    </article>
+
+    <article class="insight">
+      <p class="insight-num">Insight 05</p>
+      <h2>Busca em LLM ainda é informacional — mas a venda já está vindo de lá.</h2>
+      <p>O dado mais surpreendente da sessão veio da análise de 50 empresas: a barrinha de tráfego vinda de busca em IA ainda é pequena (0,4–0,5%). Mas quando se olha pra origem das vendas, a conversa muda:</p>
+      <div class="stat-row">
+        <div class="stat">
+          <p class="stat-value">11,0%</p>
+          <p class="stat-label">das vendas B2C já vêm de busca em LLM</p>
+        </div>
+        <div class="stat">
+          <p class="stat-value">9,7%</p>
+          <p class="stat-label">das vendas B2B já vêm de busca em LLM</p>
+        </div>
+      </div>
+      <p>O perfil de busca no ChatGPT ainda é majoritariamente informacional ("calorias do café"). Quando o usuário sobe pra busca navegacional ou comercial ("sabores das cápsulas da marca X"), ele migra pro Google. Mas isso vai mudar rápido — o ChatGPT já lançou checkout integrado e o Atlas (navegador próprio). <strong>O potencial de compra dentro das LLMs já é real, mesmo com tráfego ainda pequeno.</strong></p>
+      <p>Avelar puxou pra prática: o conteúdo de SEO tradicional não morreu, mas a otimização pra LLM exige peso diferente em cada coisa — link building pesa muito menos, profundidade de tema continua relevante mas com nuances. <strong>São dois jogos parecidos, com regras diferentes.</strong></p>
+    </article>
+
+    <div class="pullquote">
+      <div class="pullquote-inner">
+        <div class="pullquote-mark">"</div>
+        <p class="pullquote-text">A IA só é tão boa quanto a qualidade do seu dado. Quem cuida do dado proprietário hoje, ganha o jogo amanhã.</p>
+        <p class="pullquote-attr">— Gustavo Avelar, sobre o ativo mais subestimado do marketing</p>
+      </div>
+    </div>
+
+    <article class="insight">
+      <p class="insight-num">Insight 06</p>
+      <h2>Treinar IA — interna e externa — é tarefa de marketing agora.</h2>
+      <p>Avelar puxou uma distinção útil pra organizar a conversa sobre IA:</p>
+      <ul>
+        <li><strong>IA interna</strong> — chatbots, agentes de venda automatizados, assistentes que ajudam o vendedor. Precisam ser treinados constantemente com dado, conteúdo, contexto do produto e da marca.</li>
+        <li><strong>IA externa</strong> — as LLMs que indexam o site do cliente. A conversa de um usuário com o ChatGPT sobre a sua marca precisa ser tão boa quanto a conversa dele com o seu vendedor.</li>
+      </ul>
+      <p>Pra ajudar o cliente a medir isso, a RD apresentou no palco o <strong>Help Score</strong> — ferramenta que analisa o site e dá uma nota de quanto ele está pronto pra ser bem indexado por ChatGPT e Gemini. Já disponível na home da RD.</p>
+    </article>
+
+    <article class="insight">
+      <p class="insight-num">Insight 07</p>
+      <h2>Da era das personas para a era das pessoas.</h2>
+      <p>O fechamento mais memorável da palestra foi o exemplo da persona. Tem um cara: nasceu no Reino Unido em 1948, casou duas vezes, mora num castelo, é rico e famoso. Se você tem uma campanha de produto farmacêutico, vai funcionar bem com essa persona.</p>
+      <p>Agora, pra peça de roupa ou conteúdo musical? Depende. Porque <strong>essa persona se encaixa tanto no Rei Charles quanto no Ozzy Osbourne</strong>. Você só sabe pra qual dos dois está vendendo quando trata cada pessoa como única.</p>
+      <div class="speaker-quote avelar">
+        <div class="speaker-quote-avatar">GA</div>
+        <div class="speaker-quote-content">
+          <p>"O mundo do marketing está há décadas trabalhando com clusters e personas. Já não é suficiente faz tempo. Com IA, a gente vai conseguir ir muito além — infinitas campanhas rodando em paralelo, tratando cada indivíduo como único."</p>
+          <span class="speaker-quote-attr">Gustavo Avelar</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="insight">
+      <p class="insight-num">Para levar</p>
+      <h2>O novo profissional: menos especialista, mais curioso.</h2>
+      <p>Avelar fechou com uma fala que pegou do CEO da Perplexity: num mundo onde está cada vez mais fácil obter resposta pra tudo, ser curioso é um baita diferencial. O que diferencia um profissional hoje não é o quanto ele sabe — é o que ele tem a perguntar.</p>
+      <p>O perfil que cabe nessa nova era é:</p>
+      <ul>
+        <li><strong>Menos especialista, mais estrategista</strong> — capacidade de enxergar o todo e decidir a partir daí</li>
+        <li><strong>Flexível com playbook</strong> — o que funcionou semana passada já não serve hoje</li>
+        <li><strong>Expert em testes</strong> — testar rápido, errar, aprender, acertar</li>
+        <li><strong>Curioso por padrão</strong> — saber o que perguntar conta mais do que saber a resposta</li>
+      </ul>
+      <p>O funil clássico segue o mesmo: atrair, engajar, converter, reter. Mas tudo isso acontecendo com outra velocidade, em mais canais, com mais personalização. <strong>E o melhor playbook é o que se escreve junto.</strong></p>
+    </article>
+
+  </main>
+
+  <section class="related">
+    <div class="related-inner">
+      <p class="related-label">Conteúdo relacionado</p>
+      <h3 class="related-title">Continue por aqui</h3>
+      <div class="related-grid">
+        <a class="related-card" href="martha-gabriel-pensamento-critico.html">
+          <span class="tag">Tendências</span>
+          <h4>Pensamento crítico, a habilidade zero da era da IA</h4>
+          <p>Martha Gabriel sobre por que a IA está atrofiando justamente o que vai diferenciar quem prospera.</p>
+        </a>
+        <a class="related-card" href="lideranca-era-ia-bial-laercio-bruno.html">
+          <span class="tag">Mentoria aberta</span>
+          <h4>A IA não sabe dizer "eu não sei"</h4>
+          <p>Bial conduz uma mentoria com Laércio Cosentino (TOTVS) e Bruno Camargo (Fairfax) sobre liderar a transformação.</p>
+        </a>
+        <a class="related-card" href="#">
+          <span class="tag">Prisma</span>
+          <h4>Tudo conectado: a nova experiência da plataforma RD Station</h4>
+          <p>Filipe Fonseca apresenta os novos recursos do RD, incluindo o Help Score completo.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="brand-footer">
+    <div class="brand-footer-inner">
+      <img class="brand-footer-logo" src="../assets/logo-mundo-rd.png" alt="Mundo RD Station 2026">
+      <div class="brand-footer-text">
+        Hub de conteúdo · 3–5 agosto 2026 · Costão do Santinho, Florianópolis<br>
+        <a href="https://mundo.rdstation.com/" target="_blank" rel="noopener">mundo.rdstation.com</a>
+        &nbsp;·&nbsp;
+        <a href="../index.html">voltar ao hub</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
