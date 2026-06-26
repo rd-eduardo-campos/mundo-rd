@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#022538">
+  <title>Vozes · Mundo RD Station 2026</title>
+  <meta name="description" content="Vozes desta edição do Mundo RD Station 2026: frases marcantes das palestras em rotação contínua. Tela cinematográfica pensada para displays do evento.">
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --mrd-petroleo: #022538;
+      --mrd-petroleo-2: #043247;
+      --mrd-cyan: #00C9F2;
+      --mrd-cyan-dark: #006B82;
+      --mrd-roxo: #A35CFF;
+      --mrd-lima: #D7F26B;
+      --mrd-lima-dark: #5F7912;
+      --font-display: 'Fraunces', 'Times New Roman', Georgia, serif;
+      --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: var(--mrd-petroleo);
+      color: #fff;
+      font-family: var(--font-ui);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      cursor: none;
+    }
+
+    /* ===== Stage (fullscreen) ===== */
+    .stage {
+      position: fixed;
+      inset: 0;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: 4vh 5vw;
+      overflow: hidden;
+    }
+
+    /* ===== Background ambient ===== */
+    .ambient {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .ambient::before, .ambient::after {
+      content: '';
+      position: absolute;
+      width: 80vmin;
+      height: 80vmin;
+      background-size: contain;
+      background-repeat: no-repeat;
+      transition: opacity 2s ease, transform 18s linear;
+    }
+    .ambient::before {
+      top: -20vmin;
+      right: -20vmin;
+      background-image: url('assets/bloco-semicirculos-cyan.png');
+      opacity: .18;
+      animation: drift1 60s linear infinite;
+    }
+    .ambient::after {
+      bottom: -25vmin;
+      left: -20vmin;
+      background-image: url('assets/bloco-concentricos-roxo.png');
+      opacity: .12;
+      animation: drift2 80s linear infinite;
+    }
+    @keyframes drift1 {
+      0%   { transform: rotate(0deg) translateX(0); }
+      50%  { transform: rotate(180deg) translateX(20px); }
+      100% { transform: rotate(360deg) translateX(0); }
+    }
+    @keyframes drift2 {
+      0%   { transform: rotate(0deg) translateY(0); }
+      50%  { transform: rotate(-180deg) translateY(-30px); }
+      100% { transform: rotate(-360deg) translateY(0); }
+    }
+    .ambient-stage {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 75% 25%, rgba(0,201,242,0.10) 0%, rgba(0,201,242,0) 45%),
+                  radial-gradient(circle at 25% 80%, rgba(163,92,255,0.08) 0%, rgba(163,92,255,0) 50%);
+      transition: background 3s ease;
+    }
+    body.stage-lima .ambient-stage {
+      background: radial-gradient(circle at 75% 25%, rgba(215,242,107,0.12) 0%, rgba(215,242,107,0) 45%),
+                  radial-gradient(circle at 25% 80%, rgba(2,107,130,0.10) 0%, rgba(2,107,130,0) 50%);
+    }
+
+    /* ===== Header (logo + edição) ===== */
+    .head {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .head-logo { height: clamp(28px, 3.5vh, 44px); opacity: 0.95; }
+    .head-meta {
+      display: flex; align-items: center; gap: 14px;
+      font-size: clamp(11px, 1.2vh, 14px);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
+    .head-meta .live-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--mrd-lima);
+      box-shadow: 0 0 12px var(--mrd-lima);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(215,242,107,0.6); }
+      70%  { box-shadow: 0 0 0 12px rgba(215,242,107,0); }
+      100% { box-shadow: 0 0 0 0 rgba(215,242,107,0); }
+    }
+
+    /* ===== Quote core ===== */
+    .quote-wrap {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 6vw;
+      align-items: center;
+      max-width: 1900px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .quote-side { min-width: 0; }
+
+    .quote-stage-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: clamp(11px, 1.3vh, 15px);
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--mrd-cyan);
+      font-weight: 600;
+      margin-bottom: clamp(2vh, 3vh, 4vh);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 1.2s ease, transform 1.2s ease;
+    }
+    body.stage-lima .quote-stage-tag { color: var(--mrd-lima); }
+    .quote-stage-tag .bar {
+      width: 32px; height: 2px; background: currentColor;
+    }
+
+    .quote-text {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(36px, 6vw, 112px);
+      line-height: 1.06;
+      letter-spacing: -0.022em;
+      color: #fff;
+      opacity: 0;
+      transform: translateY(20px) scale(0.985);
+      transition: opacity 1.4s ease, transform 1.6s ease;
+      max-width: 18ch;
+    }
+    .quote-text::before {
+      content: '“';
+      font-style: italic;
+      font-weight: 300;
+      color: var(--mrd-cyan);
+      margin-right: .08em;
+      transition: color 1s ease;
+    }
+    body.stage-lima .quote-text::before { color: var(--mrd-lima); }
+
+    .quote-byline {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: clamp(3vh, 4vh, 6vh);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 1.2s ease .15s, transform 1.2s ease .15s;
+    }
+    .quote-byline .bar {
+      width: 48px; height: 2px; background: rgba(255,255,255,0.4);
+    }
+    .quote-author {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(18px, 2.2vw, 32px);
+      letter-spacing: -0.01em;
+      color: #fff;
+      line-height: 1.1;
+    }
+    .quote-role {
+      font-family: var(--font-ui);
+      font-size: clamp(12px, 1.4vh, 17px);
+      color: rgba(255,255,255,0.65);
+      margin-top: 4px;
+      letter-spacing: .02em;
+    }
+
+    /* ===== Speaker photo ===== */
+    .quote-photo {
+      width: clamp(180px, 28vh, 380px);
+      height: clamp(180px, 28vh, 380px);
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center top;
+      border: 4px solid var(--mrd-cyan);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
+      opacity: 0;
+      transform: scale(0.94);
+      transition: opacity 1.6s ease, transform 1.8s ease, border-color 1s ease;
+      flex-shrink: 0;
+    }
+    body.stage-lima .quote-photo { border-color: var(--mrd-lima); }
+
+    /* ===== Active state (post fade in) ===== */
+    body.active .quote-stage-tag,
+    body.active .quote-byline { opacity: 1; transform: translateY(0); }
+    body.active .quote-text { opacity: 1; transform: translateY(0) scale(1); }
+    body.active .quote-photo { opacity: 1; transform: scale(1); }
+
+    /* ===== Footer ===== */
+    .foot {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      font-size: clamp(11px, 1.2vh, 14px);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+    .foot-counter {
+      font-family: var(--font-display);
+      font-feature-settings: 'tnum';
+      font-size: clamp(13px, 1.6vh, 18px);
+      letter-spacing: .05em;
+      text-transform: none;
+      color: rgba(255,255,255,0.6);
+    }
+    .foot-counter .current { color: #fff; font-weight: 500; }
+
+    /* ===== Progress bar (thin top) ===== */
+    .progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      z-index: 3;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--mrd-cyan);
+      transition: background 1s ease;
+    }
+    body.stage-lima .progress-bar { background: var(--mrd-lima); }
+
+    /* ===== Responsive (portrait/mobile) ===== */
+    @media (max-aspect-ratio: 4/5) {
+      .quote-wrap { grid-template-columns: 1fr; gap: 4vh; }
+      .quote-photo {
+        width: clamp(140px, 24vh, 220px);
+        height: clamp(140px, 24vh, 220px);
+        order: -1;
+        justify-self: start;
+      }
+      .quote-text { font-size: clamp(30px, 7vw, 56px); max-width: none; }
+    }
+    @media (max-width: 720px) {
+      .stage { padding: 3vh 5vw; }
+      .head-logo { height: 24px; }
+      .quote-text { font-size: clamp(28px, 8vw, 48px); }
+      .quote-photo { width: 140px; height: 140px; border-width: 3px; }
+    }
+
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition-duration: 0.2s !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+  <div class="stage">
+    <div class="ambient" aria-hidden="true"></div>
+    <div class="ambient-stage" aria-hidden="true"></div>
+
+    <header class="head">
+      <img class="head-logo" src="assets/logo-mundo-rd.png" alt="Mundo RD Station 2026">
+      <div class="head-meta">
+        <span class="live-dot"></span>
+        Cobertura ao vivo · Edição #01
+      </div>
+    </header>
+
+    <main class="quote-wrap">
+      <div class="quote-side">
+        <p class="quote-stage-tag" id="stageTag">
+          <span class="bar"></span>
+          <span id="stageName">Tendências</span>
+        </p>
+        <blockquote class="quote-text" id="quoteText">
+          A IA não tira relevância de ninguém. O que tira é falta de adaptabilidade.
+        </blockquote>
+        <div class="quote-byline">
+          <span class="bar"></span>
+          <div>
+            <p class="quote-author" id="quoteAuthor">Martha Gabriel</p>
+            <p class="quote-role" id="quoteRole">Futurista, autora e palestrante</p>
+          </div>
+        </div>
+      </div>
+      <div class="quote-photo" id="quotePhoto" style="background-image:url('assets/speakers/martha-gabriel.jpg')" aria-hidden="true"></div>
+    </main>
+
+    <footer class="foot">
+      <span>mundo.rdstation.com</span>
+      <span class="foot-counter"><span class="current" id="counterCurrent">01</span> / <span id="counterTotal">15</span></span>
+      <span>3 a 5 ago · Costão do Santinho</span>
+    </footer>
+  </div>
+
+  <script>
+    const QUOTES = [
+      {
+        text: "A IA não tira relevância de ninguém. O que tira é falta de adaptabilidade.",
+        author: "Martha Gabriel",
+        role: "Futurista, autora e palestrante",
+        stage: "Tendências",
+        photo: "assets/speakers/martha-gabriel.jpg",
+        tone: "cyan"
+      },
+      {
+        text: "Pensar antes, IA depois. IA é copiloto, nunca piloto.",
+        author: "Martha Gabriel",
+        role: "Futurista, autora e palestrante",
+        stage: "Tendências",
+        photo: "assets/speakers/martha-gabriel.jpg",
+        tone: "cyan"
+      },
+      {
+        text: "O furacão está vindo. Você pode ignorar ou se preparar. Não tem terceira opção.",
+        author: "Laércio Cosentino",
+        role: "Fundador da TOTVS",
+        stage: "Mentoria aberta",
+        photo: "assets/speakers/laercio-consentino.webp",
+        tone: "lima"
+      },
+      {
+        text: "O que muda é o meio, não a essência.",
+        author: "Laércio Cosentino",
+        role: "Fundador da TOTVS",
+        stage: "Mentoria aberta",
+        photo: "assets/speakers/laercio-consentino.webp",
+        tone: "lima"
+      },
+      {
+        text: "A IA é treinada por algoritmos desenvolvidos por humanos. Se a gente colocar fake news, ela vai falar fake news.",
+        author: "Laércio Cosentino",
+        role: "Fundador da TOTVS",
+        stage: "Mentoria aberta",
+        photo: "assets/speakers/laercio-consentino.webp",
+        tone: "lima"
+      },
+      {
+        text: "A democracia, assim como qualquer pensamento, se inaugura pela desconfiança.",
+        author: "Pedro Bial",
+        role: "Jornalista, mediador da sessão",
+        stage: "Mentoria aberta",
+        photo: "assets/speakers/pedro-bial.jpeg",
+        tone: "lima"
+      },
+      {
+        text: "A inteligência artificial se abastece do passado. O ser humano tem as suas raízes no futuro.",
+        author: "Pedro Bial",
+        role: "Jornalista, mediador da sessão",
+        stage: "Mentoria aberta",
+        photo: "assets/speakers/pedro-bial.jpeg",
+        tone: "lima"
+      },
+      {
+        text: "O que importa controlar agora é propósito, valores, e como as decisões estão sendo tomadas.",
+        author: "Bruno Camargo",
+        role: "CEO Fairfax Brasil",
+        stage: "Mentoria aberta",
+        photo: "assets/speakers/bruno-camargo.jpg",
+        tone: "lima"
+      },
+      {
+        text: "Largar o computador, olhar pro céu, andar na natureza. As soluções já estão aí na sua frente.",
+        author: "Bruno Camargo",
+        role: "CEO Fairfax Brasil",
+        stage: "Mentoria aberta",
+        photo: "assets/speakers/bruno-camargo.jpg",
+        tone: "lima"
+      },
+      {
+        text: "Implementar IA não é só plugar agente. É a galera de N1, N2, N3 acreditar na transformação.",
+        author: "Bruno Camargo",
+        role: "CEO Fairfax Brasil",
+        stage: "Mentoria aberta",
+        photo: "assets/speakers/bruno-camargo.jpg",
+        tone: "lima"
+      },
+      {
+        text: "A IA só é tão boa quanto a qualidade do seu dado. Quem cuida do dado proprietário hoje, ganha o jogo amanhã.",
+        author: "Gustavo Avelar",
+        role: "CEO RD Station",
+        stage: "Tendências",
+        photo: "assets/speakers/gustavo-avelar.jpg",
+        tone: "cyan"
+      },
+      {
+        text: "Em um mundo inundado por IA, o fator humano diz muito.",
+        author: "Gustavo Avelar",
+        role: "CEO RD Station",
+        stage: "Tendências",
+        photo: "assets/speakers/gustavo-avelar.jpg",
+        tone: "cyan"
+      },
+      {
+        text: "O cliente compra por dezenas de interfaces diferentes. A IA vai impactar todas.",
+        author: "Gustavo Avelar",
+        role: "CEO RD Station",
+        stage: "Tendências",
+        photo: "assets/speakers/gustavo-avelar.jpg",
+        tone: "cyan"
+      },
+      {
+        text: "Pensem em multicanal e multi-formato, não em substituição.",
+        author: "Rafael Maryink",
+        role: "Sócio fundador NP Digital Brasil",
+        stage: "Tendências",
+        photo: "assets/speakers/rafael-maryink.jpg",
+        tone: "cyan"
+      },
+      {
+        text: "Você não é culpado de não ter lido. É trabalho de longo prazo, é construção de marca.",
+        author: "Rafael Maryink",
+        role: "Sócio fundador NP Digital Brasil",
+        stage: "Tendências",
+        photo: "assets/speakers/rafael-maryink.jpg",
+        tone: "cyan"
+      }
+    ];
+
+    const HOLD_MS = 11000;   // tempo que cada frase fica visível
+    const FADE_MS = 1600;    // duração da transição
+
+    const body = document.body;
+    const el = {
+      text:   document.getElementById('quoteText'),
+      author: document.getElementById('quoteAuthor'),
+      role:   document.getElementById('quoteRole'),
+      stage:  document.getElementById('stageName'),
+      photo:  document.getElementById('quotePhoto'),
+      counter:document.getElementById('counterCurrent'),
+      counterTotal: document.getElementById('counterTotal'),
+      progress: document.getElementById('progressBar'),
+    };
+
+    el.counterTotal.textContent = String(QUOTES.length).padStart(2, '0');
+
+    // Shuffle Fisher-Yates pra ordem aleatória que não repete até zerar
+    function shuffle(arr) {
+      const a = arr.slice();
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    let queue = shuffle(QUOTES);
+    let idx = 0;
+    let progressStart = 0;
+
+    function applyQuote(q) {
+      el.text.textContent = q.text;
+      el.author.textContent = q.author;
+      el.role.textContent = q.role;
+      el.stage.textContent = q.stage;
+      el.photo.style.backgroundImage = `url('${q.photo}')`;
+      body.classList.toggle('stage-lima', q.tone === 'lima');
+      body.classList.toggle('stage-cyan', q.tone === 'cyan');
+    }
+
+    function show(q, index) {
+      applyQuote(q);
+      el.counter.textContent = String(index + 1).padStart(2, '0');
+      requestAnimationFrame(() => {
+        body.classList.add('active');
+        progressStart = performance.now();
+      });
+    }
+
+    function next() {
+      // fade out
+      body.classList.remove('active');
+      setTimeout(() => {
+        idx++;
+        if (idx >= queue.length) {
+          queue = shuffle(QUOTES);
+          idx = 0;
+        }
+        show(queue[idx], idx);
+      }, FADE_MS);
+    }
+
+    function tickProgress() {
+      const elapsed = performance.now() - progressStart;
+      const pct = Math.min(100, (elapsed / HOLD_MS) * 100);
+      el.progress.style.width = pct + '%';
+      requestAnimationFrame(tickProgress);
+    }
+
+    // Boot
+    document.fonts.ready.then(() => {
+      show(queue[0], 0);
+      requestAnimationFrame(tickProgress);
+      setInterval(next, HOLD_MS + FADE_MS);
+    });
+  </script>
+
+</body>
+</html>
