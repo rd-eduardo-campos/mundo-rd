@@ -3,21 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hub de conteúdo · Mundo RD Station 2026</title>
-  <meta name="description" content="Hub de conteúdo do Mundo RD Station 2026. Palestras estruturadas por palco e speaker, com insights, quotes e materiais.">
+  <title>Mundo RD 2026 · Hub editorial do evento</title>
+  <meta name="description" content="O conteúdo do Mundo RD Station 2026 em formato magazine. Palestras destrinchadas, quotes, dados e tendências, atualizado em tempo real durante o evento.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+
   <style>
     :root {
-      --bg: #FAFAF9;
+      --bg: #FAF8F3;
+      --bg-2: #F2EFE7;
       --surface: #FFFFFF;
-      --surface-2: #F4F3F0;
-      --text-primary: #1A1A1F;
-      --text-secondary: #5F5E5A;
-      --text-tertiary: #888780;
-      --border: rgba(0,0,0,0.08);
-      --radius-md: 8px;
-      --radius-lg: 12px;
-      --radius-xl: 20px;
+      --ink: #0F0F12;
+      --ink-2: #2A2A30;
+      --ink-3: #5F5E5A;
+      --ink-4: #8C8B84;
+      --rule: #1A1A1F;
+      --border: rgba(15,15,18,0.10);
 
       --mrd-petroleo: #022538;
       --mrd-petroleo-2: #043247;
@@ -30,558 +34,1112 @@
       --mrd-lima: #D7F26B;
       --mrd-lima-dark: #5F7912;
       --mrd-lima-soft: #F0F8D2;
+
+      --font-display: 'Fraunces', 'Times New Roman', Georgia, serif;
+      --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      --shadow-soft: 0 1px 2px rgba(15,15,18,0.04), 0 12px 32px rgba(15,15,18,0.06);
     }
+
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: var(--font-ui);
       background: var(--bg);
-      color: var(--text-primary);
+      color: var(--ink);
       margin: 0;
       padding: 0;
       line-height: 1.55;
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
-    h1, h2, h3, h4 { font-weight: 500; margin: 0; }
-    a { color: var(--mrd-cyan-dark); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    h1, h2, h3, h4, h5 { margin: 0; font-weight: 500; }
+    p { margin: 0; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .display { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.015em; }
+    .display-italic { font-family: var(--font-display); font-weight: 500; font-style: italic; letter-spacing: -0.015em; }
+    .kicker {
+      font-family: var(--font-ui);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--mrd-cyan-dark);
+    }
+    .kicker.on-dark { color: var(--mrd-cyan); }
+    .rule-h { border-top: 1px solid var(--border); }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; }
 
-    /* ---------- Top nav ---------- */
-    .topnav {
+    /* ===== Top masthead ===== */
+    .masthead {
       background: var(--mrd-petroleo);
-      padding: 14px 0;
+      color: #fff;
+      padding: 16px 0 14px;
       position: sticky;
       top: 0;
-      z-index: 10;
-      box-shadow: 0 1px 0 rgba(255,255,255,0.05);
+      z-index: 20;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    .topnav-inner {
-      max-width: 1100px;
+    .masthead-inner {
+      max-width: 1180px;
       margin: 0 auto;
       padding: 0 1.5rem;
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      justify-content: space-between;
       gap: 1rem;
     }
-    .topnav-logo { height: 28px; }
-    .topnav-links { display: flex; gap: 1.5rem; }
-    .topnav-link {
-      font-size: 13.5px;
-      color: rgba(255,255,255,0.78);
+    .masthead-issue {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .masthead-issue .live-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--mrd-lima);
+      box-shadow: 0 0 0 0 rgba(215,242,107,0.7);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(215,242,107,0.6); }
+      70% { box-shadow: 0 0 0 8px rgba(215,242,107,0); }
+      100% { box-shadow: 0 0 0 0 rgba(215,242,107,0); }
+    }
+    .masthead-logo { height: 30px; justify-self: center; }
+    .masthead-links {
+      display: flex;
+      gap: 1.4rem;
+      justify-self: end;
+    }
+    .masthead-link {
+      font-size: 12.5px;
       font-weight: 500;
+      color: rgba(255,255,255,0.78);
       transition: color .15s;
+      letter-spacing: .01em;
     }
-    .topnav-link:hover { color: var(--mrd-cyan); text-decoration: none; }
+    .masthead-link:hover { color: var(--mrd-cyan); }
 
-    /* ---------- Hero ---------- */
-    .hero {
-      background-color: var(--mrd-petroleo);
-      background-image: url('assets/bg-monocromatico-cyan.png');
-      background-size: cover;
-      background-position: center;
-      background-blend-mode: multiply;
+    /* ===== Cover (hero editorial) ===== */
+    .cover {
       position: relative;
-      padding: 5rem 0 6rem;
+      padding: 4.5rem 0 5rem;
       overflow: hidden;
+      background: var(--bg);
     }
-    .hero::before {
+    .cover::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(2,37,56,0.20) 0%, rgba(2,37,56,0.65) 100%);
+      background-image:
+        radial-gradient(circle at 92% 12%, rgba(0,201,242,0.10) 0%, rgba(0,201,242,0) 35%),
+        radial-gradient(circle at 5% 88%, rgba(163,92,255,0.08) 0%, rgba(163,92,255,0) 32%);
       pointer-events: none;
     }
-    .hero-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--mrd-petroleo);
-      background: var(--mrd-cyan);
-      padding: 6px 14px;
-      border-radius: 999px;
-      margin-bottom: 1.5rem;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-    .hero-title {
-      font-size: clamp(36px, 5vw, 56px);
-      font-weight: 500;
-      color: #fff;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin: 0 0 1.25rem;
-      max-width: 820px;
-    }
-    .hero-title .accent { color: var(--mrd-cyan); }
-    .hero-subtitle {
-      font-size: 17px;
-      color: rgba(255,255,255,0.82);
-      line-height: 1.65;
-      max-width: 640px;
-      margin: 0 0 2rem;
-    }
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px 20px;
-      align-items: center;
-      font-size: 13.5px;
-      color: rgba(255,255,255,0.72);
-    }
-    .hero-meta-item { display: inline-flex; align-items: center; gap: 6px; }
-    .hero-meta-item i { font-size: 16px; color: var(--mrd-cyan); }
-
-    /* ---------- Sections ---------- */
-    .section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 4rem 1.5rem;
-    }
-    .section-header { margin-bottom: 2rem; }
-    .section-eyebrow {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--mrd-cyan-dark);
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      margin: 0 0 .5rem;
-    }
-    .section-title {
-      font-size: clamp(24px, 3vw, 32px);
-      font-weight: 500;
-      line-height: 1.2;
-      letter-spacing: -0.01em;
-      margin: 0 0 .75rem;
-      max-width: 720px;
-    }
-    .section-lede {
-      font-size: 16px;
-      color: var(--text-secondary);
-      line-height: 1.65;
-      max-width: 620px;
-      margin: 0;
-    }
-
-    /* ---------- Sobre ---------- */
-    .about-strip {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .about-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .about-card {
-      padding: 0;
-    }
-    .about-card .num {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--mrd-cyan-dark);
-      letter-spacing: .12em;
-      margin: 0 0 .5rem;
-    }
-    .about-card h3 {
-      font-size: 16px;
-      font-weight: 500;
-      margin: 0 0 .35rem;
-      color: var(--text-primary);
-    }
-    .about-card p {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    /* ---------- Palcos grid ---------- */
-    .palcos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.25rem;
-    }
-    .palco-card {
-      position: relative;
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      background: var(--mrd-petroleo);
-      color: #fff;
-      min-height: 280px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 1.5rem;
-      cursor: pointer;
-      transition: transform .25s ease, box-shadow .25s ease;
-      text-decoration: none;
-    }
-    .palco-card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(2,37,56,0.18); text-decoration: none; }
-    .palco-card-pattern {
+    .cover-deco-1 {
       position: absolute;
-      top: 0; right: 0;
-      width: 60%;
-      height: 60%;
-      background-size: cover;
-      background-position: center;
-      opacity: .92;
+      top: 2rem; right: -80px;
+      width: 380px; height: 380px;
+      background-image: url('assets/bloco-semicirculos-cyan.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: .42;
+      transform: rotate(-12deg);
+      pointer-events: none;
     }
-    .palco-card-body { position: relative; z-index: 1; }
-    .palco-card-tag {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 999px;
-      margin-bottom: .85rem;
-      background: rgba(255,255,255,0.12);
-      color: rgba(255,255,255,0.92);
-      backdrop-filter: blur(4px);
+    .cover-deco-2 {
+      position: absolute;
+      bottom: -60px; left: -80px;
+      width: 280px; height: 280px;
+      background-image: url('assets/bloco-concentricos-roxo.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: .26;
+      pointer-events: none;
     }
-    .palco-card h3 {
-      font-size: 22px;
-      font-weight: 500;
-      margin: 0 0 .35rem;
-      letter-spacing: -0.01em;
-    }
-    .palco-card-desc {
-      font-size: 13.5px;
-      color: rgba(255,255,255,0.78);
-      line-height: 1.55;
-      margin: 0 0 .85rem;
-    }
-    .palco-card-meta {
-      font-size: 12.5px;
-      color: var(--mrd-cyan);
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    /* Em breve. Palcos sem conteúdo publicado ainda. */
-    .palco-card-coming {
-      background: var(--surface-2) !important;
-      color: var(--text-secondary);
-      cursor: default;
-    }
-    .palco-card-coming:hover { transform: none; box-shadow: none; }
-    .palco-card-coming .palco-card-pattern { opacity: 0.18; filter: grayscale(1); }
-    .palco-card-coming .palco-card-tag {
-      background: rgba(0,0,0,0.06);
-      color: var(--text-tertiary);
-      backdrop-filter: none;
-    }
-    .palco-card-coming h3 { color: var(--text-secondary); }
-    .palco-card-coming .palco-card-desc { color: var(--text-tertiary); }
-    .palco-card-coming .palco-card-meta { color: var(--text-tertiary); }
-    .palco-card-coming .palco-card-meta i { opacity: .7; }
-
-    /* ---------- Palestras list ---------- */
-    .palestras-list { display: flex; flex-direction: column; gap: 14px; }
-    .palestra-row {
-      display: grid;
-      grid-template-columns: 120px 1fr auto;
-      gap: 1.25rem;
-      padding: 1.25rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      text-decoration: none;
-      transition: border-color .15s, transform .15s;
-    }
-    .palestra-row:hover { border-color: var(--mrd-cyan); text-decoration: none; transform: translateY(-1px); }
-    .palestra-thumb {
-      width: 100%;
-      aspect-ratio: 1;
-      border-radius: var(--radius-md);
-      background-size: cover;
-      background-position: center;
-    }
-    .palestra-info { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
-    .palestra-palco {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--mrd-cyan-dark);
-    }
-    .palestra-title {
-      font-size: 16.5px;
-      font-weight: 500;
-      color: var(--text-primary);
-      line-height: 1.4;
-      margin: 0;
-    }
-    .palestra-speaker {
-      font-size: 13.5px;
-      color: var(--text-secondary);
-    }
-    .palestra-time {
-      font-size: 12px;
-      color: var(--text-tertiary);
-      text-align: right;
-      align-self: center;
-      white-space: nowrap;
-    }
-
-    /* ---------- Status banner ---------- */
-    .status-banner {
-      max-width: 1100px;
-      margin: 2rem auto 0;
-      padding: 0 1.5rem;
-    }
-    .status-banner-inner {
+    .cover-inner { position: relative; z-index: 1; }
+    .cover-meta {
       display: flex;
       align-items: center;
       gap: 14px;
-      background: var(--mrd-lima-soft);
-      border: 1px solid rgba(95,121,18,0.2);
-      border-radius: var(--radius-lg);
-      padding: 14px 18px;
-      font-size: 14px;
-      color: var(--mrd-lima-dark);
+      margin-bottom: 1.75rem;
+      font-size: 11.5px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      font-weight: 600;
     }
-    .status-banner-inner i { font-size: 20px; flex-shrink: 0; }
-    .status-banner-inner strong { font-weight: 500; }
+    .cover-meta .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--ink-4); }
+    .cover-meta .tag {
+      background: var(--ink);
+      color: var(--bg);
+      padding: 5px 10px;
+      border-radius: 999px;
+      letter-spacing: .12em;
+    }
+    .cover-headline {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(48px, 7.5vw, 96px);
+      line-height: 0.95;
+      letter-spacing: -0.035em;
+      margin: 0 0 1.75rem;
+      max-width: 16ch;
+      color: var(--ink);
+    }
+    .cover-headline em { font-style: italic; color: var(--mrd-cyan-dark); }
+    .cover-deck {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--ink-2);
+      max-width: 640px;
+      margin: 0 0 2.5rem;
+    }
+    .cover-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      align-items: stretch;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      padding: 1.25rem 0;
+    }
+    .cover-strip-item {
+      flex: 1;
+      min-width: 160px;
+      padding: 0 1.5rem;
+      border-right: 1px solid var(--border);
+    }
+    .cover-strip-item:first-child { padding-left: 0; }
+    .cover-strip-item:last-child { border-right: none; padding-right: 0; }
+    .cover-strip-num {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 36px;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .cover-strip-label {
+      font-size: 12px;
+      color: var(--ink-3);
+      letter-spacing: .04em;
+    }
 
-    /* ---------- Footer ---------- */
-    .brand-footer {
-      margin-top: 4rem;
-      background-color: var(--mrd-petroleo);
-      background-image: url('assets/bg-monocromatico-cyan.png');
+    /* ===== Sumário ===== */
+    .toc {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0;
+    }
+    .toc-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
+    .toc-grid h3 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      line-height: 1.05;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+    }
+    .toc-items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      counter-reset: tocnum;
+    }
+    .toc-item {
+      display: grid;
+      grid-template-columns: 38px 1fr auto;
+      align-items: baseline;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--ink);
+      transition: background .15s, padding-left .15s;
+    }
+    .toc-item:hover { padding-left: 8px; background: rgba(0,0,0,0.02); }
+    .toc-item:hover .toc-item-title { color: var(--mrd-cyan-dark); }
+    .toc-item-num {
+      font-family: var(--font-display);
+      font-size: 14px;
+      color: var(--ink-4);
+      font-variant-numeric: tabular-nums;
+    }
+    .toc-item-title {
+      font-family: var(--font-display);
+      font-size: 17.5px;
+      line-height: 1.25;
+      letter-spacing: -0.005em;
+      transition: color .15s;
+    }
+    .toc-item-meta {
+      font-size: 11.5px;
+      color: var(--ink-4);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* ===== Capa da edição (featured) ===== */
+    .featured {
+      padding: 5rem 0 1rem;
+    }
+    .featured-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .featured-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.6vw, 40px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      max-width: 620px;
+    }
+    .featured-head .featured-lede {
+      font-size: 15px;
+      color: var(--ink-3);
+      max-width: 360px;
+      line-height: 1.6;
+    }
+    .featured-card {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 0;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      background: var(--surface);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .featured-card:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(15,15,18,0.05), 0 20px 48px rgba(15,15,18,0.10); }
+    .featured-visual {
+      background: var(--mrd-petroleo);
+      background-image: url('assets/bloco-triangulos-cyan.png');
       background-size: cover;
       background-position: center;
-      background-blend-mode: multiply;
       position: relative;
-      padding: 3rem 0;
+      min-height: 360px;
+    }
+    .featured-visual::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(2,37,56,0.55) 0%, rgba(2,37,56,0.15) 50%, rgba(0,201,242,0.20) 100%);
+    }
+    .featured-tag-overlay {
+      position: absolute;
+      top: 20px; left: 20px;
+      z-index: 2;
+      background: var(--mrd-lima);
+      color: var(--mrd-petroleo);
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      padding: 5px 11px;
+      border-radius: 999px;
+    }
+    .featured-body {
+      padding: 2.5rem 2.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .featured-body .kicker { margin-bottom: 1rem; }
+    .featured-body h3 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(28px, 3.4vw, 38px);
+      line-height: 1.08;
+      letter-spacing: -0.022em;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+    .featured-body .dek {
+      font-size: 16px;
+      color: var(--ink-2);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .featured-byline {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--ink-3);
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+    .featured-byline .by {
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 11px;
+      color: var(--ink-4);
+    }
+    .featured-byline strong { color: var(--ink); font-weight: 500; }
+    .featured-cta {
+      margin-top: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--mrd-cyan-dark);
+      letter-spacing: .02em;
+    }
+    .featured-cta i { transition: transform .15s; }
+    .featured-card:hover .featured-cta i { transform: translateX(4px); }
+
+    /* ===== Seções (palcos) ===== */
+    .seasons {
+      padding: 5rem 0 4rem;
+    }
+    .seasons-head {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+      align-items: flex-end;
+    }
+    .seasons-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+    }
+    .seasons-head h2 em { font-style: italic; color: var(--mrd-roxo-dark); }
+    .seasons-head .lede {
+      font-size: 16px;
+      color: var(--ink-3);
+      line-height: 1.65;
+      max-width: 480px;
+    }
+    .seasons-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+    .season-card {
+      grid-column: span 2;
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--mrd-petroleo);
+      color: #fff;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.75rem;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .season-card.featured-card-large { grid-column: span 3; min-height: 360px; }
+    .season-card:not(.season-card-coming):hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(2,37,56,0.22); }
+    .season-card-pattern {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: .85;
+      mix-blend-mode: lighten;
+    }
+    .season-card-pattern.tint-petroleo {
+      background-color: var(--mrd-petroleo);
+    }
+    .season-card-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(2,37,56,0.10) 0%, rgba(2,37,56,0.85) 100%);
+    }
+    .season-card-content { position: relative; z-index: 1; }
+    .season-card-num {
+      font-family: var(--font-display);
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: .04em;
+      margin-bottom: .65rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .season-card-tag {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+      background: rgba(255,255,255,0.16);
+      color: #fff;
+      backdrop-filter: blur(6px);
+    }
+    .season-card h3 {
+      font-family: var(--font-display);
+      font-size: 30px;
+      letter-spacing: -0.02em;
+      margin-bottom: .5rem;
+      line-height: 1;
+    }
+    .season-card.featured-card-large h3 { font-size: 40px; }
+    .season-card-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.55;
+      max-width: 30ch;
+      margin-bottom: 1rem;
+    }
+    .season-card-meta {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      color: var(--mrd-lima);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .season-card-meta i { transition: transform .15s; }
+    .season-card:hover .season-card-meta i { transform: translateX(3px); }
+    .season-card-coming {
+      background: #F5F2EA;
+      color: var(--ink-3);
+      cursor: default;
+    }
+    .season-card-coming .season-card-pattern { opacity: .35; filter: grayscale(1); mix-blend-mode: multiply; }
+    .season-card-coming .season-card-gradient { display: none; }
+    .season-card-coming .season-card-num { color: var(--ink-4); }
+    .season-card-coming .season-card-tag { background: rgba(15,15,18,0.06); color: var(--ink-3); backdrop-filter: none; }
+    .season-card-coming h3 { color: var(--ink-2); }
+    .season-card-coming .season-card-desc { color: var(--ink-3); }
+    .season-card-coming .season-card-meta { color: var(--ink-4); }
+
+    /* ===== Pull-quote orfão ===== */
+    .orphan-quote {
+      background: var(--mrd-petroleo);
+      color: #fff;
+      padding: 5rem 0;
+      position: relative;
       overflow: hidden;
     }
-    .brand-footer::before {
+    .orphan-quote::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(2,37,56,0.55) 0%, rgba(2,37,56,0.85) 100%);
-      pointer-events: none;
+      background-image: url('assets/bg-monocromatico-cyan.png');
+      background-size: cover;
+      background-position: center;
+      opacity: .25;
+      mix-blend-mode: screen;
     }
-    .brand-footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
+    .orphan-quote-deco {
+      position: absolute;
+      right: -100px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 460px; height: 460px;
+      background-image: url('assets/bloco-circulos-lima.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: .22;
+    }
+    .orphan-quote-inner { position: relative; z-index: 1; max-width: 880px; }
+    .orphan-quote .kicker { color: var(--mrd-lima); margin-bottom: 1.5rem; }
+    .orphan-quote blockquote {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-style: italic;
+      font-size: clamp(28px, 4.2vw, 46px);
+      line-height: 1.18;
+      letter-spacing: -0.018em;
+      color: #fff;
+      margin: 0 0 1.5rem;
+    }
+    .orphan-quote blockquote::before {
+      content: '“';
+      display: block;
+      font-size: 5em;
+      line-height: .5;
+      color: var(--mrd-lima);
+      margin-bottom: 1.5rem;
+      font-family: var(--font-display);
+    }
+    .orphan-quote cite {
+      font-style: normal;
+      font-size: 13px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+    .orphan-quote cite strong { color: var(--mrd-cyan); font-weight: 500; }
+    .orphan-quote-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 2rem;
+      font-size: 13px;
+      color: var(--mrd-lima);
+      font-weight: 600;
+      letter-spacing: .04em;
+      border-bottom: 1px solid rgba(215,242,107,0.4);
+      padding-bottom: 4px;
+    }
+    .orphan-quote-link:hover { color: #fff; border-bottom-color: #fff; }
+
+    /* ===== Reportagens recentes ===== */
+    .latest {
+      padding: 5rem 0 4rem;
+    }
+    .latest-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 2rem;
+      padding-bottom: 1.25rem;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--rule);
+      flex-wrap: wrap;
+    }
+    .latest-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.6vw, 40px);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .latest-head .latest-sub {
+      font-size: 12.5px;
+      color: var(--ink-4);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .latest-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.75rem;
+    }
+    .latest-card { color: inherit; display: block; }
+    .latest-card.span-large { grid-column: span 7; }
+    .latest-card.span-small { grid-column: span 5; }
+    .latest-card.span-half { grid-column: span 6; }
+    .latest-cover {
       position: relative;
-      z-index: 1;
+      aspect-ratio: 16 / 9;
+      border-radius: 4px;
+      background-color: var(--mrd-petroleo);
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+    }
+    .latest-cover::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(2,37,56,0) 50%, rgba(2,37,56,0.55) 100%);
+    }
+    .latest-cover-tag {
+      position: absolute;
+      bottom: 14px; left: 14px;
+      z-index: 2;
+      background: rgba(255,255,255,0.95);
+      color: var(--ink);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+    .latest-card.span-large .latest-cover { aspect-ratio: 16 / 10; }
+    .latest-card .kicker { margin-bottom: .65rem; }
+    .latest-card h3 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: .65rem;
+      transition: color .15s;
+    }
+    .latest-card.span-large h3 { font-size: clamp(26px, 2.6vw, 32px); }
+    .latest-card.span-small h3, .latest-card.span-half h3 { font-size: 22px; }
+    .latest-card:hover h3 { color: var(--mrd-cyan-dark); }
+    .latest-card .dek {
+      font-size: 14.5px;
+      color: var(--ink-3);
+      line-height: 1.6;
+      margin-bottom: .85rem;
+    }
+    .latest-card.span-small .dek, .latest-card.span-half .dek { display: none; }
+    .latest-byline {
+      font-size: 12.5px;
+      color: var(--ink-3);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .latest-byline .by-label {
+      font-size: 10.5px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      font-weight: 600;
+    }
+
+    /* ===== Expediente ===== */
+    .masthead-bottom {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      padding: 4rem 0;
+    }
+    .masthead-bottom-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 3rem;
+    }
+    .masthead-bottom h2 {
+      font-family: var(--font-display);
+      font-size: 26px;
+      letter-spacing: -0.015em;
+      line-height: 1.1;
+      max-width: 220px;
+    }
+    .masthead-bottom .kicker { margin-bottom: .75rem; }
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .pillar {
+      padding: 1.5rem;
+      background: var(--surface);
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .pillar-icon {
+      width: 38px; height: 38px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 20px;
+    }
+    .pillar:nth-child(1) .pillar-icon { background: var(--mrd-cyan-soft); color: var(--mrd-cyan-dark); }
+    .pillar:nth-child(2) .pillar-icon { background: var(--mrd-lima-soft); color: var(--mrd-lima-dark); }
+    .pillar:nth-child(3) .pillar-icon { background: var(--mrd-roxo-soft); color: var(--mrd-roxo-dark); }
+    .pillar h3 {
+      font-family: var(--font-display);
+      font-size: 19px;
+      letter-spacing: -0.01em;
+      margin-bottom: .5rem;
+      color: var(--ink);
+    }
+    .pillar p {
+      font-size: 13.5px;
+      color: var(--ink-3);
+      line-height: 1.6;
+    }
+
+    /* ===== Footer ===== */
+    .colophon {
+      background: var(--mrd-petroleo);
+      color: rgba(255,255,255,0.78);
+      padding: 4rem 0 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .colophon::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/bg-monocromatico-cyan.png');
+      background-size: cover;
+      background-position: center;
+      opacity: .15;
+      mix-blend-mode: screen;
+    }
+    .colophon-inner { position: relative; z-index: 1; }
+    .colophon-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      margin-bottom: 2rem;
+    }
+    .colophon-top h2 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4.2vw, 48px);
+      line-height: 1;
+      letter-spacing: -0.025em;
+      color: #fff;
+      max-width: 14ch;
+    }
+    .colophon-top h2 em { font-style: italic; color: var(--mrd-cyan); }
+    .colophon-top .colophon-lede {
+      font-size: 15px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.75);
+      max-width: 420px;
+    }
+    .colophon-top .colophon-lede a {
+      color: var(--mrd-cyan);
+      border-bottom: 1px solid rgba(0,201,242,0.4);
+      padding-bottom: 1px;
+    }
+    .colophon-bottom {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1.5rem;
       flex-wrap: wrap;
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.55);
     }
-    .brand-footer-logo { height: 36px; }
-    .brand-footer-text { font-size: 13px; color: rgba(255,255,255,0.78); line-height: 1.7; }
-    .brand-footer-text a { color: var(--mrd-cyan); }
-    .brand-footer-text a:hover { color: #fff; }
+    .colophon-logo { height: 32px; }
+    .colophon-bottom .colophon-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .colophon-bottom .colophon-meta span { display: inline-flex; align-items: center; gap: 6px; }
 
-    @media (max-width: 720px) {
-      .topnav-links { display: none; }
-      .hero { padding: 3rem 0 4rem; }
-      .section { padding: 3rem 1.25rem; }
-      .palestra-row { grid-template-columns: 72px 1fr; }
-      .palestra-time { grid-column: 2; text-align: left; }
+    /* ===== Responsive ===== */
+    @media (max-width: 900px) {
+      .masthead-inner { grid-template-columns: 1fr auto; }
+      .masthead-issue { display: none; }
+      .masthead-links { gap: 1rem; }
+      .toc-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .toc-items { grid-template-columns: 1fr; }
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-visual { min-height: 220px; }
+      .seasons-head { grid-template-columns: 1fr; gap: 1rem; }
+      .seasons-grid { grid-template-columns: 1fr; }
+      .season-card, .season-card.featured-card-large { grid-column: span 1; }
+      .latest-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .latest-card.span-large, .latest-card.span-small, .latest-card.span-half { grid-column: span 1; }
+      .masthead-bottom-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .pillars { grid-template-columns: 1fr; }
+      .colophon-top { grid-template-columns: 1fr; gap: 1.5rem; }
+      .cover-strip { flex-direction: column; }
+      .cover-strip-item { border-right: none; border-bottom: 1px solid var(--border); padding: 1rem 0; }
+      .cover-strip-item:last-child { border-bottom: none; }
+      .cover-deco-1 { width: 220px; height: 220px; right: -60px; }
+      .cover-deco-2 { display: none; }
+    }
+    @media (max-width: 560px) {
+      .featured-body { padding: 1.75rem 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top nav -->
-  <nav class="topnav">
-    <div class="topnav-inner">
-      <a href="#" style="display:flex;align-items:center;">
-        <img class="topnav-logo" src="assets/logo-mundo-rd.png" alt="Mundo RD Station 2026">
+  <!-- ========================= MASTHEAD ========================= -->
+  <nav class="masthead">
+    <div class="masthead-inner">
+      <div class="masthead-issue">
+        <span class="live-dot"></span>
+        Edição #01 · Cobertura ao vivo
+      </div>
+      <a href="#" aria-label="Mundo RD Station 2026" style="display:flex;align-items:center;">
+        <img class="masthead-logo" src="assets/logo-mundo-rd.png" alt="Mundo RD Station 2026">
       </a>
-      <div class="topnav-links">
-        <a class="topnav-link" href="#palcos">Palcos</a>
-        <a class="topnav-link" href="#palestras">Palestras</a>
-        <a class="topnav-link" href="#sobre">Sobre o hub</a>
+      <div class="masthead-links">
+        <a class="masthead-link" href="#sumario">Sumário</a>
+        <a class="masthead-link" href="#palcos">Palcos</a>
+        <a class="masthead-link" href="#ultimas">Últimas</a>
+        <a class="masthead-link" href="#expediente">Expediente</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <header class="hero">
-    <div class="hero-inner">
-      <span class="hero-eyebrow"><i class="ti ti-bolt"></i> Hub de conteúdo · 2026</span>
-      <h1 class="hero-title">O conteúdo do Mundo RD,<br><span class="accent">na hora que rolar.</span></h1>
-      <p class="hero-subtitle">
-        Cada palestra do evento vira uma página estruturada com insights, quotes, contexto do speaker e materiais relacionados. Atualizado em tempo real conforme as sessões acontecem.
+  <!-- ========================= COVER ========================= -->
+  <header class="cover">
+    <div class="cover-deco-1" aria-hidden="true"></div>
+    <div class="cover-deco-2" aria-hidden="true"></div>
+    <div class="container cover-inner">
+      <div class="cover-meta">
+        <span class="tag">Mundo RD 2026</span>
+        <span>3 a 5 de agosto</span>
+        <span class="dot"></span>
+        <span>Costão do Santinho · Florianópolis</span>
+      </div>
+      <h1 class="cover-headline">
+        A conversa do<br>
+        <em>marketing brasileiro</em><br>
+        em tempo real.
+      </h1>
+      <p class="cover-deck">
+        Tudo o que sobe nos palcos do Mundo RD vira matéria aqui. Quotes, dados, contexto e o que veio depois. Cobertura editorial completa, atualizada a cada sessão, pronta para você revisitar quando quiser.
       </p>
-      <div class="hero-meta">
-        <span class="hero-meta-item"><i class="ti ti-calendar"></i> 3 a 5 de agosto de 2026</span>
-        <span class="hero-meta-item"><i class="ti ti-map-pin"></i> Costão do Santinho, Florianópolis</span>
-        <span class="hero-meta-item"><i class="ti ti-users"></i> ~500 participantes</span>
+      <div class="cover-strip">
+        <div class="cover-strip-item">
+          <div class="cover-strip-num">3</div>
+          <div class="cover-strip-label">Matérias publicadas</div>
+        </div>
+        <div class="cover-strip-item">
+          <div class="cover-strip-num">5</div>
+          <div class="cover-strip-label">Palcos cobertos</div>
+        </div>
+        <div class="cover-strip-item">
+          <div class="cover-strip-num">~500</div>
+          <div class="cover-strip-label">Participantes no evento</div>
+        </div>
+        <div class="cover-strip-item">
+          <div class="cover-strip-num">3 dias</div>
+          <div class="cover-strip-label">De cobertura intensiva</div>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- Status banner (em dia de evento) -->
-  <div class="status-banner">
-    <div class="status-banner-inner">
-      <i class="ti ti-broadcast"></i>
-      <span><strong>Evento ao vivo.</strong> Novas palestras vão entrando conforme as sessões acontecem nos palcos. Volte aqui ao longo do dia.</span>
-    </div>
-  </div>
-
-  <!-- Sobre o hub -->
-  <section class="section about-strip" id="sobre">
-    <div class="section-header">
-      <p class="section-eyebrow">Sobre este hub</p>
-      <h2 class="section-title">Não é um repositório de gravações. É o conteúdo destilado.</h2>
-      <p class="section-lede">
-        Cada palestra recebe um tratamento de curadoria. Os insights ficam em destaque, as quotes mais fortes ganham respiro e o contexto do speaker está sempre por perto. Pra você revisitar o que importou sem ter que escutar tudo de novo.
-      </p>
-    </div>
-    <div class="about-grid">
-      <div class="about-card">
-        <p class="num">01</p>
-        <h3>Organizado por palco</h3>
-        <p>Cinco palcos, cinco propósitos. Cada um tem seu próprio jeito de organizar a informação para você encontrar exatamente o que procura.</p>
-      </div>
-      <div class="about-card">
-        <p class="num">02</p>
-        <h3>Atualizado ao vivo</h3>
-        <p>As páginas vão entrando conforme as palestras acontecem. Volte ao longo do evento pra acompanhar.</p>
-      </div>
-      <div class="about-card">
-        <p class="num">03</p>
-        <h3>Pós-evento permanente</h3>
-        <p>O hub fica no ar como referência depois que o Mundo RD acabar. Compartilhe os links que mais marcaram.</p>
+  <!-- ========================= SUMÁRIO ========================= -->
+  <section class="toc" id="sumario">
+    <div class="container">
+      <div class="toc-grid">
+        <div>
+          <p class="kicker">Sumário</p>
+          <h3>Nesta edição.</h3>
+        </div>
+        <div class="toc-items">
+          <a class="toc-item" href="palestras/martha-gabriel-pensamento-critico.html">
+            <span class="toc-item-num">P. 01</span>
+            <span class="toc-item-title">Pensamento crítico, a habilidade zero da era da IA</span>
+            <span class="toc-item-meta">Tendências</span>
+          </a>
+          <a class="toc-item" href="palestras/lideranca-era-ia-bial-laercio-bruno.html">
+            <span class="toc-item-num">P. 02</span>
+            <span class="toc-item-title">A IA não sabe dizer "eu não sei"</span>
+            <span class="toc-item-meta">Mentoria aberta</span>
+          </a>
+          <a class="toc-item" href="palestras/avelar-maryink-era-das-pessoas.html">
+            <span class="toc-item-num">P. 03</span>
+            <span class="toc-item-title">Da era das personas para a era das pessoas</span>
+            <span class="toc-item-meta">Tendências</span>
+          </a>
+          <a class="toc-item" href="#palcos">
+            <span class="toc-item-num">P. 04</span>
+            <span class="toc-item-title">Conheça os cinco palcos do evento</span>
+            <span class="toc-item-meta">Seções</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Palcos -->
-  <section class="section" id="palcos">
-    <div class="section-header">
-      <p class="section-eyebrow">Explore por palco</p>
-      <h2 class="section-title">Cinco palcos, cinco lentes diferentes sobre o mesmo evento.</h2>
-      <p class="section-lede">Cada palco tem um propósito e um formato. Escolha o que conversa com o seu momento.</p>
+  <!-- ========================= CAPA DA EDIÇÃO ========================= -->
+  <section class="container featured">
+    <div class="featured-head">
+      <h2 class="display">A matéria que abriu a edição.</h2>
+      <p class="featured-lede">Sessão que reposicionou a discussão de marketing no evento e virou referência para as conversas dos três dias.</p>
     </div>
-    <div class="palcos-grid">
+    <a href="palestras/avelar-maryink-era-das-pessoas.html" class="featured-card">
+      <div class="featured-visual">
+        <span class="featured-tag-overlay">Matéria de capa</span>
+      </div>
+      <div class="featured-body">
+        <p class="kicker">Tendências · Sessão 07</p>
+        <h3>Da era das personas para a era das pessoas.</h3>
+        <p class="dek">Gustavo Avelar (CEO RD Station) e Rafael Maryink (NP Digital) mapearam o que mudou no marketing. Múltiplas interfaces de consumo, queda do tráfego orgânico, novos dados e por que o playbook que funcionava semana passada já não serve mais.</p>
+        <div class="featured-byline">
+          <span class="by">Por</span>
+          <span><strong>Gustavo Avelar</strong> e <strong>Rafael Maryink</strong></span>
+        </div>
+        <span class="featured-cta">Ler a matéria completa <i class="ti ti-arrow-right"></i></span>
+      </div>
+    </a>
+  </section>
 
-      <a class="palco-card" href="palcos/tendencias.html" style="background-color: var(--mrd-cyan-dark);">
-        <div class="palco-card-pattern" style="background-image: url('assets/bloco-semicirculos-cyan.png');"></div>
-        <div class="palco-card-body">
-          <span class="palco-card-tag">Keynotes &amp; Masterclasses</span>
-          <h3>Tendências</h3>
-          <p class="palco-card-desc">Quem olha o mercado de fora vem aqui contar o que está vendo. Keynotes para abrir o pensamento e masterclasses para aprofundar com quem entende.</p>
-          <span class="palco-card-meta">Explorar palestras <i class="ti ti-arrow-right"></i></span>
+  <!-- ========================= SEÇÕES (PALCOS) ========================= -->
+  <section class="container seasons" id="palcos">
+    <div class="seasons-head">
+      <h2 class="display">As <em>cinco seções</em><br>desta edição.</h2>
+      <p class="lede">Cada palco do Mundo RD é uma seção editorial com voz e ritmo próprios. Escolha por onde começar a sua leitura.</p>
+    </div>
+    <div class="seasons-grid">
+
+      <a class="season-card featured-card-large" href="palcos/tendencias.html">
+        <div class="season-card-pattern tint-petroleo" style="background-image: url('assets/bloco-semicirculos-cyan.png'); background-color: var(--mrd-cyan-dark);"></div>
+        <div class="season-card-gradient"></div>
+        <div class="season-card-content">
+          <span class="season-card-num">Seção 01</span>
+          <span class="season-card-tag">Keynotes &amp; Masterclasses</span>
+          <h3 class="display">Tendências.</h3>
+          <p class="season-card-desc">Quem olha o mercado de fora vem contar o que está vendo. Pensamento estruturado para abrir possibilidades.</p>
+          <span class="season-card-meta">Entrar na seção <i class="ti ti-arrow-right"></i></span>
         </div>
       </a>
 
-      <div class="palco-card palco-card-coming">
-        <div class="palco-card-pattern" style="background-image: url('assets/bloco-concentricos-roxo.png');"></div>
-        <div class="palco-card-body">
-          <span class="palco-card-tag">Plataforma RD Station</span>
-          <h3>Prisma</h3>
-          <p class="palco-card-desc">Tudo o que vem por aí na plataforma RD Station. Anúncios, novidades e novas experiências de produto apresentadas pelo time da RD.</p>
-          <span class="palco-card-meta">Em breve <i class="ti ti-clock"></i></span>
-        </div>
-      </div>
-
-      <div class="palco-card palco-card-coming">
-        <div class="palco-card-pattern" style="background-image: url('assets/bloco-arcos-lima.png');"></div>
-        <div class="palco-card-body">
-          <span class="palco-card-tag">Histórias de cliente</span>
-          <h3>Imersão</h3>
-          <p class="palco-card-desc">Histórias reais de quem usa RD Station no dia a dia. Como começaram, o que mudou no negócio e os números que comprovam.</p>
-          <span class="palco-card-meta">Em breve <i class="ti ti-clock"></i></span>
-        </div>
-      </div>
-
-      <div class="palco-card palco-card-coming">
-        <div class="palco-card-pattern" style="background-image: url('assets/bloco-circulos-lima.png');"></div>
-        <div class="palco-card-body">
-          <span class="palco-card-tag">Construído junto</span>
-          <h3>Cocriação</h3>
-          <p class="palco-card-desc">Histórias construídas em parceria entre cliente e RD Station. Como a relação evoluiu e o que vem depois.</p>
-          <span class="palco-card-meta">Em breve <i class="ti ti-clock"></i></span>
-        </div>
-      </div>
-
-      <a class="palco-card" href="palcos/mentoria-aberta.html" style="background-color: var(--mrd-petroleo-2);">
-        <div class="palco-card-pattern" style="background-image: url('assets/bloco-semicirculos-lima.png');"></div>
-        <div class="palco-card-body">
-          <span class="palco-card-tag">Conversa com executivos</span>
-          <h3>Mentoria aberta</h3>
-          <p class="palco-card-desc">Executivos que já passaram pelas decisões que você está tomando agora. Pergunta direta, resposta prática.</p>
-          <span class="palco-card-meta">Explorar sessões <i class="ti ti-arrow-right"></i></span>
+      <a class="season-card" href="palcos/mentoria-aberta.html">
+        <div class="season-card-pattern" style="background-image: url('assets/bloco-arcos-lima.png'); background-color: var(--mrd-petroleo-2);"></div>
+        <div class="season-card-gradient"></div>
+        <div class="season-card-content">
+          <span class="season-card-num">Seção 02</span>
+          <span class="season-card-tag">Conversa franca</span>
+          <h3 class="display">Mentoria aberta.</h3>
+          <p class="season-card-desc">Executivos que já passaram pelas decisões que você está tomando agora.</p>
+          <span class="season-card-meta">Entrar na seção <i class="ti ti-arrow-right"></i></span>
         </div>
       </a>
+
+      <div class="season-card season-card-coming">
+        <div class="season-card-pattern" style="background-image: url('assets/bloco-concentricos-roxo.png');"></div>
+        <div class="season-card-content">
+          <span class="season-card-num">Seção 03</span>
+          <span class="season-card-tag">Plataforma RD</span>
+          <h3 class="display">Prisma.</h3>
+          <p class="season-card-desc">Anúncios, novidades e experiências de produto que vêm por aí.</p>
+          <span class="season-card-meta">Em breve <i class="ti ti-clock"></i></span>
+        </div>
+      </div>
+
+      <div class="season-card season-card-coming">
+        <div class="season-card-pattern" style="background-image: url('assets/bloco-circulos-lima.png');"></div>
+        <div class="season-card-content">
+          <span class="season-card-num">Seção 04</span>
+          <span class="season-card-tag">Histórias reais</span>
+          <h3 class="display">Imersão.</h3>
+          <p class="season-card-desc">Como começaram, o que mudou no negócio, os números que comprovam.</p>
+          <span class="season-card-meta">Em breve <i class="ti ti-clock"></i></span>
+        </div>
+      </div>
+
+      <div class="season-card season-card-coming">
+        <div class="season-card-pattern" style="background-image: url('assets/bloco-triangulos-cyan.png');"></div>
+        <div class="season-card-content">
+          <span class="season-card-num">Seção 05</span>
+          <span class="season-card-tag">Construído junto</span>
+          <h3 class="display">Cocriação.</h3>
+          <p class="season-card-desc">Parcerias cliente-RD que evoluíram. Como nasceu, como segue.</p>
+          <span class="season-card-meta">Em breve <i class="ti ti-clock"></i></span>
+        </div>
+      </div>
 
     </div>
   </section>
 
-  <!-- Últimas adicionadas -->
-  <section class="section" id="palestras" style="padding-top: 0;">
-    <div class="section-header">
-      <p class="section-eyebrow">Últimas adicionadas</p>
-      <h2 class="section-title">Acabou de sair.</h2>
-      <p class="section-lede">As palestras mais recentes do hub. Atualiza durante o evento.</p>
+  <!-- ========================= PULL QUOTE ÓRFÃO ========================= -->
+  <section class="orphan-quote">
+    <div class="orphan-quote-deco" aria-hidden="true"></div>
+    <div class="container orphan-quote-inner">
+      <p class="kicker">Citação da edição</p>
+      <blockquote>
+        A IA não tira relevância de ninguém. O que tira é falta de adaptabilidade. Adaptar-se hoje significa proteger a única habilidade que a IA não substitui: pensar bem.
+      </blockquote>
+      <cite>Por <strong>Martha Gabriel</strong> · Palco Tendências</cite>
+      <br>
+      <a class="orphan-quote-link" href="palestras/martha-gabriel-pensamento-critico.html">
+        Ler a matéria completa <i class="ti ti-arrow-right"></i>
+      </a>
     </div>
-    <div class="palestras-list">
+  </section>
 
-      <a class="palestra-row" href="palestras/avelar-maryink-era-das-pessoas.html">
-        <div class="palestra-thumb" style="background-image: url('assets/bloco-triangulos-cyan.png');"></div>
-        <div class="palestra-info">
-          <span class="palestra-palco">Tendências</span>
-          <h3 class="palestra-title">Da era das personas para a era das pessoas</h3>
-          <span class="palestra-speaker">Gustavo Avelar · CEO RD Station + Rafael Maryink · NP Digital</span>
+  <!-- ========================= REPORTAGENS RECENTES ========================= -->
+  <section class="container latest" id="ultimas">
+    <div class="latest-head">
+      <h2 class="display">Últimas reportagens.</h2>
+      <span class="latest-sub">Atualizado durante o evento</span>
+    </div>
+    <div class="latest-grid">
+
+      <a class="latest-card span-large" href="palestras/martha-gabriel-pensamento-critico.html">
+        <div class="latest-cover" style="background-image: url('assets/bloco-semicirculos-cyan.png'); background-color: var(--mrd-petroleo);">
+          <span class="latest-cover-tag">Tendências</span>
         </div>
-        <span class="palestra-time">há 5 min</span>
+        <p class="kicker">Reportagem · 08 min de leitura</p>
+        <h3>Pensamento crítico, a habilidade zero da era da IA.</h3>
+        <p class="dek">Martha Gabriel: por que a IA está atrofiando exatamente o que mais importa, e o método dos cinco pilares para desenvolver pensamento crítico antes que o mercado cobre.</p>
+        <div class="latest-byline">
+          <span class="by-label">Por</span> <strong>Martha Gabriel</strong>
+        </div>
       </a>
 
-      <a class="palestra-row" href="palestras/lideranca-era-ia-bial-laercio-bruno.html">
-        <div class="palestra-thumb" style="background-image: url('assets/bloco-arcos-lima.png');"></div>
-        <div class="palestra-info">
-          <span class="palestra-palco">Mentoria aberta</span>
-          <h3 class="palestra-title">A IA não sabe dizer "eu não sei". Por isso ainda precisa de você.</h3>
-          <span class="palestra-speaker">Pedro Bial conduz · Laércio Cosentino &amp; Bruno Camargo</span>
-        </div>
-        <span class="palestra-time">há 1h</span>
-      </a>
+      <div class="latest-card span-small" style="display:flex;flex-direction:column;gap:2rem;">
 
-      <a class="palestra-row" href="palestras/martha-gabriel-pensamento-critico.html">
-        <div class="palestra-thumb" style="background-image: url('assets/bloco-semicirculos-cyan.png');"></div>
-        <div class="palestra-info">
-          <span class="palestra-palco">Tendências</span>
-          <h3 class="palestra-title">Pensamento crítico, a habilidade zero da era da IA</h3>
-          <span class="palestra-speaker">Martha Gabriel</span>
-        </div>
-        <span class="palestra-time">há 1h</span>
-      </a>
+        <a class="latest-card" href="palestras/lideranca-era-ia-bial-laercio-bruno.html" style="display:block;">
+          <div class="latest-cover" style="aspect-ratio: 16 / 9; background-image: url('assets/bloco-arcos-lima.png'); background-color: var(--mrd-petroleo-2);">
+            <span class="latest-cover-tag">Mentoria aberta</span>
+          </div>
+          <p class="kicker">Sessão · 07 min de leitura</p>
+          <h3>A IA não sabe dizer "eu não sei".</h3>
+          <div class="latest-byline">
+            <span class="by-label">Por</span> Pedro Bial, Laércio Cosentino &amp; Bruno Camargo
+          </div>
+        </a>
+
+        <a class="latest-card" href="palestras/avelar-maryink-era-das-pessoas.html" style="display:block;">
+          <div class="latest-cover" style="aspect-ratio: 16 / 9; background-image: url('assets/bloco-triangulos-cyan.png'); background-color: var(--mrd-cyan-dark);">
+            <span class="latest-cover-tag">Tendências</span>
+          </div>
+          <p class="kicker">Reportagem · 09 min de leitura</p>
+          <h3>Da era das personas para a era das pessoas.</h3>
+          <div class="latest-byline">
+            <span class="by-label">Por</span> Gustavo Avelar &amp; Rafael Maryink
+          </div>
+        </a>
+
+      </div>
 
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="brand-footer">
-    <div class="brand-footer-inner">
-      <img class="brand-footer-logo" src="assets/logo-mundo-rd.png" alt="Mundo RD Station 2026">
-      <div class="brand-footer-text">
-        Hub de conteúdo · 3 a 5 de agosto de 2026 · Costão do Santinho, Florianópolis<br>
-        <a href="https://mundo.rdstation.com/" target="_blank" rel="noopener">mundo.rdstation.com</a>
+  <!-- ========================= EXPEDIENTE ========================= -->
+  <section class="masthead-bottom" id="expediente">
+    <div class="container">
+      <div class="masthead-bottom-grid">
+        <div>
+          <p class="kicker">Expediente</p>
+          <h2 class="display">Como o hub é feito.</h2>
+        </div>
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon"><i class="ti ti-broadcast"></i></div>
+            <h3>Atualizado ao vivo.</h3>
+            <p>As matérias entram conforme as sessões acontecem nos palcos. Volte ao longo do evento para acompanhar a edição crescendo.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon"><i class="ti ti-highlight"></i></div>
+            <h3>Curadoria editorial.</h3>
+            <p>Não é transcrição. Cada palestra é destilada em insights, quotes, dados e contexto, no formato que aproveita melhor o tempo de quem lê.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon"><i class="ti ti-bookmark"></i></div>
+            <h3>Permanente.</h3>
+            <p>O hub fica no ar depois que o Mundo RD acaba. Use como referência, compartilhe os links que marcaram, volte quando quiser revisitar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= COLOPHON / FOOTER ========================= -->
+  <footer class="colophon">
+    <div class="container colophon-inner">
+      <div class="colophon-top">
+        <h2 class="display">Conteúdo do <em>Mundo RD 2026</em>, do palco para a sua tela.</h2>
+        <p class="colophon-lede">
+          Mundo RD Station 2026 acontece de 3 a 5 de agosto no Costão do Santinho, em Florianópolis. Saiba mais sobre o evento em <a href="https://mundo.rdstation.com/" target="_blank" rel="noopener">mundo.rdstation.com</a>.
+        </p>
+      </div>
+      <div class="colophon-bottom">
+        <img class="colophon-logo" src="assets/logo-mundo-rd.png" alt="Mundo RD Station 2026">
+        <div class="colophon-meta">
+          <span><i class="ti ti-calendar"></i> 3 a 5 de agosto de 2026</span>
+          <span><i class="ti ti-map-pin"></i> Costão do Santinho, Florianópolis</span>
+          <span><i class="ti ti-broadcast"></i> Edição #01</span>
+        </div>
       </div>
     </div>
   </footer>
