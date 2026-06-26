@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mundo RD Station 2026 — Hub de conteúdo</title>
+  <meta name="description" content="Hub de conteúdo do Mundo RD Station 2026. Palestras estruturadas por palco e speaker, com insights, quotes e materiais.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+  <style>
+    :root {
+      --bg: #FAFAF9;
+      --surface: #FFFFFF;
+      --surface-2: #F4F3F0;
+      --text-primary: #1A1A1F;
+      --text-secondary: #5F5E5A;
+      --text-tertiary: #888780;
+      --border: rgba(0,0,0,0.08);
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 20px;
+
+      --mrd-petroleo: #022538;
+      --mrd-petroleo-2: #043247;
+      --mrd-cyan: #00C9F2;
+      --mrd-cyan-dark: #006B82;
+      --mrd-cyan-soft: #D4F5FB;
+      --mrd-roxo: #A35CFF;
+      --mrd-roxo-dark: #6826B5;
+      --mrd-roxo-soft: #EFE6FF;
+      --mrd-lima: #D7F26B;
+      --mrd-lima-dark: #5F7912;
+      --mrd-lima-soft: #F0F8D2;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      margin: 0;
+      padding: 0;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { font-weight: 500; margin: 0; }
+    a { color: var(--mrd-cyan-dark); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ---------- Top nav ---------- */
+    .topnav {
+      background: var(--mrd-petroleo);
+      padding: 14px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.05);
+    }
+    .topnav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .topnav-logo { height: 28px; }
+    .topnav-links { display: flex; gap: 1.5rem; }
+    .topnav-link {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.78);
+      font-weight: 500;
+      transition: color .15s;
+    }
+    .topnav-link:hover { color: var(--mrd-cyan); text-decoration: none; }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      background-color: var(--mrd-petroleo);
+      background-image: url('assets/bg-monocromatico-cyan.png');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: multiply;
+      position: relative;
+      padding: 5rem 0 6rem;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(2,37,56,0.20) 0%, rgba(2,37,56,0.65) 100%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--mrd-petroleo);
+      background: var(--mrd-cyan);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .hero-title {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 0 0 1.25rem;
+      max-width: 820px;
+    }
+    .hero-title .accent { color: var(--mrd-cyan); }
+    .hero-subtitle {
+      font-size: 17px;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.65;
+      max-width: 640px;
+      margin: 0 0 2rem;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      align-items: center;
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.72);
+    }
+    .hero-meta-item { display: inline-flex; align-items: center; gap: 6px; }
+    .hero-meta-item i { font-size: 16px; color: var(--mrd-cyan); }
+
+    /* ---------- Sections ---------- */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+    .section-header { margin-bottom: 2rem; }
+    .section-eyebrow {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--mrd-cyan-dark);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin: 0 0 .5rem;
+    }
+    .section-title {
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin: 0 0 .75rem;
+      max-width: 720px;
+    }
+    .section-lede {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      max-width: 620px;
+      margin: 0;
+    }
+
+    /* ---------- Sobre ---------- */
+    .about-strip {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .about-card {
+      padding: 0;
+    }
+    .about-card .num {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--mrd-cyan-dark);
+      letter-spacing: .12em;
+      margin: 0 0 .5rem;
+    }
+    .about-card h3 {
+      font-size: 16px;
+      font-weight: 500;
+      margin: 0 0 .35rem;
+      color: var(--text-primary);
+    }
+    .about-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ---------- Palcos grid ---------- */
+    .palcos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .palco-card {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: var(--mrd-petroleo);
+      color: #fff;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: transform .25s ease, box-shadow .25s ease;
+      text-decoration: none;
+    }
+    .palco-card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(2,37,56,0.18); text-decoration: none; }
+    .palco-card-pattern {
+      position: absolute;
+      top: 0; right: 0;
+      width: 60%;
+      height: 60%;
+      background-size: cover;
+      background-position: center;
+      opacity: .92;
+    }
+    .palco-card-body { position: relative; z-index: 1; }
+    .palco-card-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: .85rem;
+      background: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.92);
+      backdrop-filter: blur(4px);
+    }
+    .palco-card h3 {
+      font-size: 22px;
+      font-weight: 500;
+      margin: 0 0 .35rem;
+      letter-spacing: -0.01em;
+    }
+    .palco-card-desc {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.55;
+      margin: 0 0 .85rem;
+    }
+    .palco-card-meta {
+      font-size: 12.5px;
+      color: var(--mrd-cyan);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ---------- Palestras list ---------- */
+    .palestras-list { display: flex; flex-direction: column; gap: 14px; }
+    .palestra-row {
+      display: grid;
+      grid-template-columns: 120px 1fr auto;
+      gap: 1.25rem;
+      padding: 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      transition: border-color .15s, transform .15s;
+    }
+    .palestra-row:hover { border-color: var(--mrd-cyan); text-decoration: none; transform: translateY(-1px); }
+    .palestra-thumb {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: var(--radius-md);
+      background-size: cover;
+      background-position: center;
+    }
+    .palestra-info { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+    .palestra-palco {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--mrd-cyan-dark);
+    }
+    .palestra-title {
+      font-size: 16.5px;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.4;
+      margin: 0;
+    }
+    .palestra-speaker {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+    }
+    .palestra-time {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      text-align: right;
+      align-self: center;
+      white-space: nowrap;
+    }
+
+    /* ---------- Status banner ---------- */
+    .status-banner {
+      max-width: 1100px;
+      margin: 2rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .status-banner-inner {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--mrd-lima-soft);
+      border: 1px solid rgba(95,121,18,0.2);
+      border-radius: var(--radius-lg);
+      padding: 14px 18px;
+      font-size: 14px;
+      color: var(--mrd-lima-dark);
+    }
+    .status-banner-inner i { font-size: 20px; flex-shrink: 0; }
+    .status-banner-inner strong { font-weight: 500; }
+
+    /* ---------- Footer ---------- */
+    .brand-footer {
+      margin-top: 4rem;
+      background-color: var(--mrd-petroleo);
+      background-image: url('assets/bg-monocromatico-cyan.png');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: multiply;
+      position: relative;
+      padding: 3rem 0;
+      overflow: hidden;
+    }
+    .brand-footer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(2,37,56,0.55) 0%, rgba(2,37,56,0.85) 100%);
+      pointer-events: none;
+    }
+    .brand-footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .brand-footer-logo { height: 36px; }
+    .brand-footer-text { font-size: 13px; color: rgba(255,255,255,0.78); line-height: 1.7; }
+    .brand-footer-text a { color: var(--mrd-cyan); }
+    .brand-footer-text a:hover { color: #fff; }
+
+    @media (max-width: 720px) {
+      .topnav-links { display: none; }
+      .hero { padding: 3rem 0 4rem; }
+      .section { padding: 3rem 1.25rem; }
+      .palestra-row { grid-template-columns: 72px 1fr; }
+      .palestra-time { grid-column: 2; text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top nav -->
+  <nav class="topnav">
+    <div class="topnav-inner">
+      <a href="#" style="display:flex;align-items:center;">
+        <img class="topnav-logo" src="assets/logo-mundo-rd.png" alt="Mundo RD Station 2026">
+      </a>
+      <div class="topnav-links">
+        <a class="topnav-link" href="#palcos">Palcos</a>
+        <a class="topnav-link" href="#palestras">Palestras</a>
+        <a class="topnav-link" href="#sobre">Sobre o hub</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="hero-eyebrow"><i class="ti ti-bolt"></i> Hub de conteúdo · 2026</span>
+      <h1 class="hero-title">O conteúdo do Mundo RD,<br><span class="accent">na hora que rolar.</span></h1>
+      <p class="hero-subtitle">
+        Cada palestra do evento vira uma página estruturada com insights, quotes, contexto do speaker e materiais relacionados. Atualizado em tempo real conforme as sessões acontecem.
+      </p>
+      <div class="hero-meta">
+        <span class="hero-meta-item"><i class="ti ti-calendar"></i> 3–5 agosto 2026</span>
+        <span class="hero-meta-item"><i class="ti ti-map-pin"></i> Costão do Santinho, Florianópolis</span>
+        <span class="hero-meta-item"><i class="ti ti-users"></i> ~500 participantes</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Status banner (em dia de evento) -->
+  <div class="status-banner">
+    <div class="status-banner-inner">
+      <i class="ti ti-broadcast"></i>
+      <span><strong>Evento ao vivo · Dia 2</strong> — novas palestras são adicionadas conforme acontecem nos palcos. Volte aqui ao longo do dia.</span>
+    </div>
+  </div>
+
+  <!-- Sobre o hub -->
+  <section class="section about-strip" id="sobre">
+    <div class="section-header">
+      <p class="section-eyebrow">Sobre este hub</p>
+      <h2 class="section-title">Não é um repositório de gravações. É o conteúdo destilado.</h2>
+      <p class="section-lede">
+        Cada palestra recebe um tratamento de curadoria — os insights ficam em destaque, as quotes mais fortes ganham respiro, o contexto do speaker está sempre por perto. Pra você revisitar o que importou sem ter que escutar tudo de novo.
+      </p>
+    </div>
+    <div class="about-grid">
+      <div class="about-card">
+        <p class="num">01</p>
+        <h3>Estruturado por palco</h3>
+        <p>Tendências, Prisma, Imersão, Cocriação e Conexão — cada palco tem seu próprio jeito de organizar a informação.</p>
+      </div>
+      <div class="about-card">
+        <p class="num">02</p>
+        <h3>Atualizado ao vivo</h3>
+        <p>As páginas vão entrando conforme as palestras acontecem. Volte ao longo do evento pra acompanhar.</p>
+      </div>
+      <div class="about-card">
+        <p class="num">03</p>
+        <h3>Pós-evento permanente</h3>
+        <p>O hub fica no ar como referência depois que o Mundo RD acabar. Compartilhe os links que mais marcaram.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Palcos -->
+  <section class="section" id="palcos">
+    <div class="section-header">
+      <p class="section-eyebrow">Explore por palco</p>
+      <h2 class="section-title">Cinco palcos, cinco lentes diferentes sobre o mesmo evento.</h2>
+      <p class="section-lede">Cada palco tem um propósito e um formato. Escolha o que conversa com o seu momento.</p>
+    </div>
+    <div class="palcos-grid">
+
+      <a class="palco-card" href="#" style="background-color: var(--mrd-cyan-dark);">
+        <div class="palco-card-pattern" style="background-image: url('assets/bloco-semicirculos-cyan.png');"></div>
+        <div class="palco-card-body">
+          <span class="palco-card-tag">Keynotes</span>
+          <h3>Tendências</h3>
+          <p class="palco-card-desc">Palestras inspiracionais que abrem cada dia. As leituras de quem está olhando o mercado de fora.</p>
+          <span class="palco-card-meta">6 palestras <i class="ti ti-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a class="palco-card" href="#" style="background-color: var(--mrd-cyan-dark);">
+        <div class="palco-card-pattern" style="background-image: url('assets/bloco-triangulos-cyan.png');"></div>
+        <div class="palco-card-body">
+          <span class="palco-card-tag">Masterclasses</span>
+          <h3>½ Tendências</h3>
+          <p class="palco-card-desc">Aprofundamentos de tema com especialistas. Formato master­class, mais técnico.</p>
+          <span class="palco-card-meta">7 palestras <i class="ti ti-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a class="palco-card" href="#" style="background-color: var(--mrd-roxo-dark);">
+        <div class="palco-card-pattern" style="background-image: url('assets/bloco-concentricos-roxo.png');"></div>
+        <div class="palco-card-body">
+          <span class="palco-card-tag">Produto RD · Sensível</span>
+          <h3>Prisma</h3>
+          <p class="palco-card-desc">As novidades do produto RD Station. Conteúdo com aprovação dupla do time de produto.</p>
+          <span class="palco-card-meta">11 palestras <i class="ti ti-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a class="palco-card" href="#" style="background-color: var(--mrd-lima-dark);">
+        <div class="palco-card-pattern" style="background-image: url('assets/bloco-arcos-lima.png');"></div>
+        <div class="palco-card-body">
+          <span class="palco-card-tag">Cases</span>
+          <h3>Imersão</h3>
+          <p class="palco-card-desc">Cases de cliente estruturados em dor → solução → resultado. Os números são o ativo.</p>
+          <span class="palco-card-meta">4 palestras <i class="ti ti-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a class="palco-card" href="#" style="background-color: var(--mrd-lima-dark);">
+        <div class="palco-card-pattern" style="background-image: url('assets/bloco-circulos-lima.png');"></div>
+        <div class="palco-card-body">
+          <span class="palco-card-tag">Cases</span>
+          <h3>Cocriação</h3>
+          <p class="palco-card-desc">Mesmo formato da Imersão, com cases trabalhados em conjunto entre cliente e RD.</p>
+          <span class="palco-card-meta">3 palestras <i class="ti ti-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a class="palco-card" href="#" style="background-color: var(--mrd-petroleo-2);">
+        <div class="palco-card-pattern" style="background-image: url('assets/bloco-semicirculos-lima.png');"></div>
+        <div class="palco-card-body">
+          <span class="palco-card-tag">Q&amp;A executivos</span>
+          <h3>Conexão</h3>
+          <p class="palco-card-desc">Pergunta-chave seguida de síntese da resposta. Conteúdo direto e citável.</p>
+          <span class="palco-card-meta">5 palestras <i class="ti ti-arrow-right"></i></span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Últimas adicionadas -->
+  <section class="section" id="palestras" style="padding-top: 0;">
+    <div class="section-header">
+      <p class="section-eyebrow">Últimas adicionadas</p>
+      <h2 class="section-title">Acabou de sair.</h2>
+      <p class="section-lede">As palestras mais recentes do hub. Atualiza durante o evento.</p>
+    </div>
+    <div class="palestras-list">
+
+      <a class="palestra-row" href="#">
+        <div class="palestra-thumb" style="background-image: url('assets/bloco-semicirculos-cyan.png');"></div>
+        <div class="palestra-info">
+          <span class="palestra-palco">Tendências</span>
+          <h3 class="palestra-title">Conteúdo pro seu público e para IA</h3>
+          <span class="palestra-speaker">Wil Reynolds · CEO Seer Interactive</span>
+        </div>
+        <span class="palestra-time">há 12 min</span>
+      </a>
+
+      <a class="palestra-row" href="#">
+        <div class="palestra-thumb" style="background-image: url('assets/bloco-concentricos-roxo.png');"></div>
+        <div class="palestra-info">
+          <span class="palestra-palco">Prisma</span>
+          <h3 class="palestra-title">Tudo conectado: a nova experiência da plataforma RD Station</h3>
+          <span class="palestra-speaker">Filipe Fonseca · RD Station</span>
+        </div>
+        <span class="palestra-time">há 1h</span>
+      </a>
+
+      <a class="palestra-row" href="#">
+        <div class="palestra-thumb" style="background-image: url('assets/bloco-triangulos-cyan.png');"></div>
+        <div class="palestra-info">
+          <span class="palestra-palco">½ Tendências</span>
+          <h3 class="palestra-title">Seu cliente já decidiu antes de pesquisar: como existir onde a descoberta acontece</h3>
+          <span class="palestra-speaker">André Siqueira</span>
+        </div>
+        <span class="palestra-time">há 2h</span>
+      </a>
+
+      <a class="palestra-row" href="#">
+        <div class="palestra-thumb" style="background-image: url('assets/bloco-arcos-lima.png');"></div>
+        <div class="palestra-info">
+          <span class="palestra-palco">Imersão</span>
+          <h3 class="palestra-title">Performance inteligente: IA para evoluir canais, campanhas e resultados</h3>
+          <span class="palestra-speaker">Giseli Anversa &amp; Fábio Langer · Gesto</span>
+        </div>
+        <span class="palestra-time">há 3h</span>
+      </a>
+
+      <a class="palestra-row" href="#">
+        <div class="palestra-thumb" style="background-image: url('assets/bloco-semicirculos-cyan.png');"></div>
+        <div class="palestra-info">
+          <span class="palestra-palco">Tendências</span>
+          <h3 class="palestra-title">Você não tem mais um público de milhares de pessoas, você tem milhares de públicos de uma pessoa</h3>
+          <span class="palestra-speaker">Beatriz Guarezi · Founder Bits to Brands</span>
+        </div>
+        <span class="palestra-time">ontem</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="brand-footer">
+    <div class="brand-footer-inner">
+      <img class="brand-footer-logo" src="assets/logo-mundo-rd.png" alt="Mundo RD Station 2026">
+      <div class="brand-footer-text">
+        Hub de conteúdo · 3–5 agosto 2026 · Costão do Santinho, Florianópolis<br>
+        <a href="https://mundo.rdstation.com/" target="_blank" rel="noopener">mundo.rdstation.com</a>
+        &nbsp;·&nbsp;
+        <a href="../processo-operacional.html">processo operacional</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
