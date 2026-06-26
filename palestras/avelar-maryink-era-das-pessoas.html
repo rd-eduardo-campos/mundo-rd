@@ -2,10 +2,77 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#022538">
   <title>Da era das personas para a era das pessoas · Avelar e Maryink · Mundo RD 2026</title>
   <meta name="description" content="Gustavo Avelar (CEO RD Station) e Rafael Maryink (NP Digital) sobre a redução do tráfego orgânico, as múltiplas interfaces de consumo e por que o marketing de personas chegou ao fim.">
+  <meta name="keywords" content="Gustavo Avelar, Rafael Maryink, CEO RD Station, NP Digital, marketing IA, tráfego orgânico, personas, multicanal, Mundo RD Station 2026">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://rd-eduardo-campos.github.io/mundo-rd/palestras/avelar-maryink-era-das-pessoas.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Mundo RD Station 2026">
+  <meta property="og:title" content="Da era das personas para a era das pessoas">
+  <meta property="og:description" content="Gustavo Avelar e Rafael Maryink mapeiam o que mudou no marketing. Múltiplas interfaces de consumo, queda do tráfego orgânico, novos dados, e por que o playbook que funcionava semana passada já não serve mais.">
+  <meta property="og:url" content="https://rd-eduardo-campos.github.io/mundo-rd/palestras/avelar-maryink-era-das-pessoas.html">
+  <meta property="og:image" content="https://rd-eduardo-campos.github.io/mundo-rd/assets/bloco-triangulos-cyan.png">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="article:section" content="Tendências">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Da era das personas para a era das pessoas">
+  <meta name="twitter:description" content="Avelar e Maryink: o playbook que funcionava semana passada já não serve mais.">
+  <meta name="twitter:image" content="https://rd-eduardo-campos.github.io/mundo-rd/assets/bloco-triangulos-cyan.png">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Da era das personas para a era das pessoas",
+    "description": "Gustavo Avelar e Rafael Maryink mapearam o que mudou no marketing brasileiro na era da IA.",
+    "image": "https://rd-eduardo-campos.github.io/mundo-rd/assets/bloco-triangulos-cyan.png",
+    "author": [
+      {"@type": "Person", "name": "Gustavo Avelar", "jobTitle": "CEO RD Station", "worksFor": {"@type": "Organization", "name": "RD Station"}},
+      {"@type": "Person", "name": "Rafael Maryink", "jobTitle": "Sócio fundador NP Digital Brasil", "worksFor": {"@type": "Organization", "name": "NP Digital"}}
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "RD Station",
+      "logo": {"@type": "ImageObject", "url": "https://rd-eduardo-campos.github.io/mundo-rd/assets/logo-mundo-rd.png"}
+    },
+    "datePublished": "2026-06-26",
+    "inLanguage": "pt-BR",
+    "articleSection": "Tendências",
+    "keywords": "marketing, IA, personas, multicanal, Avelar, Maryink",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://rd-eduardo-campos.github.io/mundo-rd/palestras/avelar-maryink-era-das-pessoas.html"
+    },
+    "isPartOf": {
+      "@type": "BusinessEvent",
+      "name": "Mundo RD Station 2026",
+      "url": "https://rd-eduardo-campos.github.io/mundo-rd/"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Hub", "item": "https://rd-eduardo-campos.github.io/mundo-rd/"},
+      {"@type": "ListItem", "position": 2, "name": "Tendências", "item": "https://rd-eduardo-campos.github.io/mundo-rd/palcos/tendencias.html"},
+      {"@type": "ListItem", "position": 3, "name": "Da era das personas para a era das pessoas"}
+    ]
+  }
+  </script>
   <style>
     :root {
       --bg: #FAFAF9;
@@ -220,18 +287,50 @@
     .brand-footer-text a { color: var(--mrd-cyan); }
     .brand-footer-text a:hover { color: #fff; }
 
+    .skip-link {
+      position: absolute; left: -9999px; top: 0; z-index: 100;
+      background: var(--mrd-lima); color: var(--mrd-petroleo);
+      padding: 10px 16px; font-weight: 600; border-radius: 0 0 8px 0;
+    }
+    .skip-link:focus { left: 0; }
+    a, button { -webkit-tap-highlight-color: rgba(0,201,242,0.18); }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--mrd-cyan); outline-offset: 3px; border-radius: 2px;
+    }
+
     @media (max-width: 720px) {
-      .topnav-links { display: none; }
+      .topnav { padding: 12px 0; }
+      .topnav-logo { height: 24px; }
+      .topnav-links {
+        display: flex; gap: 0.4rem; overflow-x: auto;
+        -webkit-overflow-scrolling: touch; scrollbar-width: none; max-width: 70%;
+      }
+      .topnav-links::-webkit-scrollbar { display: none; }
+      .topnav-link {
+        padding: 8px 10px; font-size: 12px; white-space: nowrap;
+        border-radius: 999px; background: rgba(255,255,255,0.06);
+      }
       .palestra-hero { padding: 2rem 0 3rem; background-size: 360px; background-position: right -180px center; }
+      .palestra-titulo { font-size: clamp(28px, 7vw, 40px) !important; line-height: 1.15 !important; }
+      .palestra-dek { font-size: 16px !important; }
       .content { padding: 2.5rem 1.25rem; }
       .pullquote { padding: 2rem 1.5rem; }
+      .pullquote p { font-size: clamp(20px, 5vw, 26px) !important; line-height: 1.3 !important; }
       .speaker-quote { grid-template-columns: 32px 1fr; gap: 10px; padding: 1rem; }
+      h2 { font-size: clamp(24px, 5.5vw, 30px) !important; line-height: 1.25 !important; }
+      h3 { font-size: clamp(18px, 4.5vw, 22px) !important; }
+      .stat-row { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+      html { scroll-behavior: auto; }
     }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-  <nav class="topnav">
+  <nav class="topnav" aria-label="Navegação principal">
     <div class="topnav-inner">
       <a href="../index.html" style="display:flex;align-items:center;"><img class="topnav-logo" src="../assets/logo-mundo-rd.png" alt="Mundo RD Station 2026"></a>
       <div class="topnav-links">
@@ -292,7 +391,7 @@
   </section>
 
 
-  <main class="content">
+  <main class="content" id="conteudo">
 
     <div class="tldr">
       <p class="tldr-label">A tese em uma frase</p>

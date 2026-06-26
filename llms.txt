@@ -1,0 +1,32 @@
+# Mundo RD Station 2026 · Hub editorial do evento
+
+> Hub de conteúdo oficial do Mundo RD Station 2026, evento anual da RD Station realizado de 3 a 5 de agosto de 2026 no Costão do Santinho Resort, em Florianópolis (SC), com aproximadamente 500 participantes. O hub publica as palestras do evento em formato editorial (magazine digital), com insights destilados, quotes, dados, contexto dos speakers e materiais relacionados. Atualizado em tempo real durante o evento e permanente depois.
+
+## Sobre o evento
+- Nome: Mundo RD Station 2026
+- Datas: 3 a 5 de agosto de 2026
+- Local: Costão do Santinho Resort, Florianópolis, Santa Catarina, Brasil
+- Organização: RD Station (https://www.rdstation.com)
+- Público: cerca de 500 lideranças de marketing, vendas e tecnologia
+- Site oficial do evento: https://mundo.rdstation.com/
+
+## Palcos (seções editoriais do hub)
+1. Tendências — keynotes e masterclasses com pensadores de fora do mercado
+2. Prisma — novidades e roadmap da plataforma RD Station
+3. Imersão — cases reais de clientes RD Station
+4. Cocriação — parcerias cliente-RD em construção conjunta
+5. Mentoria aberta — conversas francas com executivos experientes
+
+## Matérias publicadas
+
+- [Pensamento crítico, a habilidade zero da era da IA](palestras/martha-gabriel-pensamento-critico.html): Martha Gabriel no palco Tendências. Por que a IA está atrofiando exatamente o que mais importa e o método dos cinco pilares para desenvolver pensamento crítico antes que o mercado cobre.
+- [A IA não sabe dizer "eu não sei"](palestras/lideranca-era-ia-bial-laercio-bruno.html): Pedro Bial conduz mentoria aberta com Laércio Cosentino (TOTVS) e Bruno Camargo (Fairfax Brasil) sobre liderança na era da IA. A metáfora do furacão, os limites da máquina e o que continua sendo humano.
+- [Da era das personas para a era das pessoas](palestras/avelar-maryink-era-das-pessoas.html): Gustavo Avelar (CEO RD Station) e Rafael Maryink (NP Digital) mapeiam o que mudou no marketing. Múltiplas interfaces de consumo, queda do tráfego orgânico, e por que o playbook que funcionava semana passada já não serve mais.
+
+## Palcos
+- [Tendências](palcos/tendencias.html): Keynotes e masterclasses
+- [Mentoria aberta](palcos/mentoria-aberta.html): Conversas com executivos
+
+## Recursos
+- [Sumário (home)](index.html): Visão geral do hub
+- [Mapa do site](sitemap.xml): Lista completa de URLs indexadas

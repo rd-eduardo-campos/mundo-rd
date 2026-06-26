@@ -2,10 +2,46 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#022538">
   <title>Mentoria aberta · Mundo RD Station 2026</title>
   <meta name="description" content="Todas as sessões do palco Mentoria aberta do Mundo RD Station 2026. Conversa com executivos experientes sobre liderança, transformação e os desafios do nosso tempo.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://rd-eduardo-campos.github.io/mundo-rd/palcos/mentoria-aberta.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mundo RD Station 2026">
+  <meta property="og:title" content="Palco Mentoria aberta · Mundo RD 2026">
+  <meta property="og:description" content="Executivos que já passaram pelas decisões que você está tomando agora. Pergunta direta, resposta prática.">
+  <meta property="og:url" content="https://rd-eduardo-campos.github.io/mundo-rd/palcos/mentoria-aberta.html">
+  <meta property="og:image" content="https://rd-eduardo-campos.github.io/mundo-rd/assets/bloco-arcos-lima.png">
+  <meta property="og:locale" content="pt_BR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Palco Mentoria aberta · Mundo RD 2026">
+  <meta name="twitter:image" content="https://rd-eduardo-campos.github.io/mundo-rd/assets/bloco-arcos-lima.png">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+
+  <!-- JSON-LD: CollectionPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Palco Mentoria aberta · Mundo RD Station 2026",
+    "description": "Conversas com executivos que já passaram pelas decisões que você está tomando agora. Pergunta direta, resposta prática.",
+    "url": "https://rd-eduardo-campos.github.io/mundo-rd/palcos/mentoria-aberta.html",
+    "inLanguage": "pt-BR",
+    "isPartOf": {
+      "@type": "BusinessEvent",
+      "name": "Mundo RD Station 2026",
+      "url": "https://rd-eduardo-campos.github.io/mundo-rd/"
+    },
+    "hasPart": [
+      {"@type": "Article", "headline": "A IA não sabe dizer eu não sei", "url": "https://rd-eduardo-campos.github.io/mundo-rd/palestras/lideranca-era-ia-bial-laercio-bruno.html"}
+    ]
+  }
+  </script>
   <style>
     :root {
       --bg: #FAFAF9;
@@ -141,16 +177,43 @@
     .brand-footer-text a { color: var(--mrd-cyan); }
     .brand-footer-text a:hover { color: #fff; }
 
+    .skip-link {
+      position: absolute; left: -9999px; top: 0; z-index: 100;
+      background: var(--mrd-lima); color: var(--mrd-petroleo);
+      padding: 10px 16px; font-weight: 600; border-radius: 0 0 8px 0;
+    }
+    .skip-link:focus { left: 0; }
+    a, button { -webkit-tap-highlight-color: rgba(0,201,242,0.18); }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--mrd-cyan); outline-offset: 3px; border-radius: 2px; }
+
     @media (max-width: 720px) {
-      .topnav-links { display: none; }
+      .topnav { padding: 12px 0; }
+      .topnav-logo { height: 24px; }
+      .topnav-links {
+        display: flex; gap: 0.4rem; overflow-x: auto;
+        -webkit-overflow-scrolling: touch; scrollbar-width: none; max-width: 70%;
+      }
+      .topnav-links::-webkit-scrollbar { display: none; }
+      .topnav-link {
+        padding: 8px 10px; font-size: 12px; white-space: nowrap;
+        border-radius: 999px; background: rgba(255,255,255,0.06);
+      }
       .palco-hero { padding: 2rem 0 3rem; background-size: 360px; background-position: right -180px center; }
+      .palco-titulo { font-size: clamp(32px, 8vw, 44px) !important; line-height: 1.1 !important; }
+      .palco-dek { font-size: 16px !important; }
       .content { padding: 2.5rem 1.25rem; }
+      .section-title { font-size: clamp(20px, 5vw, 26px) !important; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+      html { scroll-behavior: auto; }
     }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-  <nav class="topnav">
+  <nav class="topnav" aria-label="Navegação principal">
     <div class="topnav-inner">
       <a href="../index.html" style="display:flex;align-items:center;"><img class="topnav-logo" src="../assets/logo-mundo-rd.png" alt="Mundo RD Station 2026"></a>
       <div class="topnav-links">
@@ -175,7 +238,7 @@
     </div>
   </header>
 
-  <main class="content">
+  <main class="content" id="conteudo">
     <p class="section-label">Sessões deste palco</p>
     <h2 class="section-title">O que já está no ar.</h2>
 
