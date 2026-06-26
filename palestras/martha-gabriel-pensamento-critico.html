@@ -645,6 +645,18 @@
       .brand-footer-bottom .colophon-meta { flex-direction: column; align-items: flex-start; gap: 0.85rem; font-size: 12px; }
     }
 
+  
+
+    /* === Speaker photos === */
+    .speaker-avatar, .speaker-quote-avatar {
+      background-size: cover !important;
+      background-position: center top !important;
+      background-repeat: no-repeat !important;
+      color: transparent !important;
+      text-indent: -9999px;
+      overflow: hidden;
+    }
+
   </style>
 </head>
 <body>
@@ -694,7 +706,7 @@
 
   <section class="speaker-bar">
     <div class="speaker-bar-inner">
-      <div class="speaker-avatar">MG</div>
+      <div class="speaker-avatar" style="background-image:url('../assets/speakers/martha-gabriel.jpg')" aria-label="Foto de Martha Gabriel"></div>
       <div class="speaker-info">
         <span class="speaker-name">Martha Gabriel</span>
         <span class="speaker-role">PhD, autora e palestrante. Top creator do LinkedIn em mulheres em tecnologia e inovação. 10 TEDx no currículo, podcast na CBN sobre futuros e livro novo pela Senac sobre habilidades para a era cognitiva.</span>

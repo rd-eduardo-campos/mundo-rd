@@ -433,6 +433,18 @@
       .brand-footer-bottom .colophon-meta { flex-direction: column; align-items: flex-start; gap: 0.85rem; font-size: 12px; }
     }
 
+  
+
+    /* === Speaker photos === */
+    .speaker-avatar, .speaker-quote-avatar {
+      background-size: cover !important;
+      background-position: center top !important;
+      background-repeat: no-repeat !important;
+      color: transparent !important;
+      text-indent: -9999px;
+      overflow: hidden;
+    }
+
   </style>
 </head>
 <body>
@@ -484,7 +496,7 @@
   <section class="speakers-bar">
     <div class="speakers-bar-inner">
       <div class="speaker">
-        <div class="speaker-avatar bial">PB</div>
+        <div class="speaker-avatar bial" style="background-image:url('../assets/speakers/pedro-bial.jpeg')" aria-label="Foto de Pedro Bial"></div>
         <div class="speaker-info">
           <span class="speaker-role-tag">Mediador</span>
           <span class="speaker-name">Pedro Bial</span>
@@ -492,7 +504,7 @@
         </div>
       </div>
       <div class="speaker">
-        <div class="speaker-avatar laercio">LC</div>
+        <div class="speaker-avatar laercio" style="background-image:url('../assets/speakers/laercio-consentino.webp')" aria-label="Foto de Laércio Cosentino"></div>
         <div class="speaker-info">
           <span class="speaker-role-tag">Convidado</span>
           <span class="speaker-name">Laércio Cosentino</span>
@@ -500,7 +512,7 @@
         </div>
       </div>
       <div class="speaker">
-        <div class="speaker-avatar bruno">BC</div>
+        <div class="speaker-avatar bruno" style="background-image:url('../assets/speakers/bruno-camargo.jpg')" aria-label="Foto de Bruno Camargo"></div>
         <div class="speaker-info">
           <span class="speaker-role-tag">Convidado</span>
           <span class="speaker-name">Bruno Camargo</span>
@@ -523,7 +535,7 @@
       <h2>O furacão está vindo. Você pode ignorar ou se preparar. Não tem terceira opção.</h2>
       <p>A imagem mais forte da conversa veio de Laércio: a IA é um furacão que a gente sabe que está vindo. Diante dele há duas opções. Deixar passar, sabendo que muito vai ser destruído mas depois o céu fica azul de novo. Ou se preparar: proteger pessoas, capacitar, organizar a reconstrução antes que ela vire necessidade.</p>
       <div class="speaker-quote laercio">
-        <div class="speaker-quote-avatar">LC</div>
+        <div class="speaker-quote-avatar" style="background-image:url('../assets/speakers/laercio-consentino.webp')" aria-label="Foto de Laércio Cosentino"></div>
         <div class="speaker-quote-content">
           <p>"A inteligência artificial está de fato capaz de destruir muita coisa. A gente pode chegar e não fazer nada. Vai passar o furacão, vai destruir, vai perder muita coisa, mas depois de um dia, um mês, vai estar aquele céu azul maravilhoso. Mas ficou o custo da destruição."</p>
           <span class="speaker-quote-attr">Laércio Cosentino</span>
@@ -537,7 +549,7 @@
       <h2>A IA trabalha com o passado. O humano, com o futuro.</h2>
       <p>Esse foi o argumento central de Bial. A IA se alimenta de tudo que já foi produzido, escrito, pensado. Ela é, por natureza, um sistema de processamento do passado. O ser humano, ao contrário, tem suas raízes no futuro: planeja, intui, projeta, decide sem ter base histórica completa.</p>
       <div class="speaker-quote bial">
-        <div class="speaker-quote-avatar">PB</div>
+        <div class="speaker-quote-avatar" style="background-image:url('../assets/speakers/pedro-bial.jpeg')" aria-label="Foto de Pedro Bial"></div>
         <div class="speaker-quote-content">
           <p>"A inteligência artificial se abastece de tudo que já foi produzido até aqui. Ela trabalha com o passado. O ser humano tem as suas raízes no futuro."</p>
           <span class="speaker-quote-attr">Pedro Bial</span>
@@ -545,7 +557,7 @@
       </div>
       <p>E há um corolário muito mais incômodo: <strong>a IA nunca diz "eu não sei"</strong>. Ela sempre tem uma resposta. Frequentemente uma resposta delirante, frequentemente fake news bem articulada, frequentemente uma síntese que parece perfeita e está errada. Mas nunca a admissão de ignorância. Que foi exatamente o que inaugurou a revolução científica humana há 500 anos.</p>
       <div class="speaker-quote bial">
-        <div class="speaker-quote-avatar">PB</div>
+        <div class="speaker-quote-avatar" style="background-image:url('../assets/speakers/pedro-bial.jpeg')" aria-label="Foto de Pedro Bial"></div>
         <div class="speaker-quote-content">
           <p>"Vocês já perguntaram coisas pra inteligência artificial, ela sempre responde. Às vezes responde delírios absolutos, mas nunca diz a frase que inaugurou a revolução científica: 'eu não sei'. Esse atributo humano é fundamental. A partir dele a gente vai procurar saber."</p>
           <span class="speaker-quote-attr">Pedro Bial</span>
@@ -566,7 +578,7 @@
       <h2>Liderar agora exige autoconhecimento. Não só estratégia.</h2>
       <p>Bruno trouxe a inflexão que talvez ninguém esperava de um CEO em painel sobre IA: o que mais importa agora é filosofia e psicologia aplicadas à liderança. Quando a IA acelera tudo, quando as decisões precisam ser mais rápidas, quando começamos a delegar julgamento para máquina, a pergunta vira <em>com base em que estamos decidindo?</em></p>
       <div class="speaker-quote bruno">
-        <div class="speaker-quote-avatar">BC</div>
+        <div class="speaker-quote-avatar" style="background-image:url('../assets/speakers/bruno-camargo.jpg')" aria-label="Foto de Bruno Camargo"></div>
         <div class="speaker-quote-content">
           <p>"Quantos de nós tomamos decisões com base nas nossas fraquezas, no nosso ego, nas nossas inseguranças? Num cargo de gestão e de autogestão, a psicologia e a filosofia ajudam muito. A gente tem que inspirar pessoas."</p>
           <span class="speaker-quote-attr">Bruno Camargo</span>
@@ -580,7 +592,7 @@
       <h2>Delegar para a máquina é o novo desafio da gestão.</h2>
       <p>Bruno descreveu uma evolução em três tempos do papel do CEO. Na "moda antiga", o CEO não delegava. Era quase uma ditadura. Depois veio o aprendizado de delegar para pessoas: o que delegar, para quem, como. Agora, o desafio novo é <strong>delegar para tecnologia</strong>. Saber o que automatizar, o que controlar via métrica, e o que precisa permanecer humano.</p>
       <div class="speaker-quote bruno">
-        <div class="speaker-quote-avatar">BC</div>
+        <div class="speaker-quote-avatar" style="background-image:url('../assets/speakers/bruno-camargo.jpg')" aria-label="Foto de Bruno Camargo"></div>
         <div class="speaker-quote-content">
           <p>"Hoje a complexidade do que tem para controlar é muito maior. Me perdoe o Peter Drucker, mas você só controla por métrica uma parte pequena da tua companhia. O que importa controlar agora é propósito, valores, e como as decisões estão sendo tomadas."</p>
           <span class="speaker-quote-attr">Bruno Camargo</span>
@@ -594,7 +606,7 @@
       <h2>Diversidade de perspectiva é a antítese da resposta automática.</h2>
       <p>Bial trouxe a observação de que a IA hoje te conhece melhor do que você mesmo. Ela sabe que assuntos mexem com a sua amígdala, com a sua atenção. E pode levar você sempre pela decisão mais fácil. Bruno respondeu: dentro de uma empresa, a saída é justamente não ter resposta pronta logo de cara.</p>
       <div class="speaker-quote bruno">
-        <div class="speaker-quote-avatar">BC</div>
+        <div class="speaker-quote-avatar" style="background-image:url('../assets/speakers/bruno-camargo.jpg')" aria-label="Foto de Bruno Camargo"></div>
         <div class="speaker-quote-content">
           <p>"Quando o problema aparece, traga diferentes pessoas, diferentes perfis, diferentes experiências de vida discutindo. O quão importante é já não ter uma resposta logo de cara, definitiva, rápida, precisa. Porque você perde contexto, perspectiva e experiência."</p>
           <span class="speaker-quote-attr">Bruno Camargo</span>
@@ -616,14 +628,14 @@
       <h2>Inovação ou renovação? Ariano Suassuna como bússola.</h2>
       <p>Bial puxou uma citação do Ariano Suassuna para fechar: na arte, não existe inovação. Existe renovação. Um Kandinsky e uma pintura rupestre têm a mesma essência humana, mudou só a forma. Será que vale o mesmo para a relação com a IA?</p>
       <div class="speaker-quote laercio">
-        <div class="speaker-quote-avatar">LC</div>
+        <div class="speaker-quote-avatar" style="background-image:url('../assets/speakers/laercio-consentino.webp')" aria-label="Foto de Laércio Cosentino"></div>
         <div class="speaker-quote-content">
           <p>"Como ser humano, sim. É renovação. A gente vai continuar nascendo e morrendo, vai viver um novo momento. Mas nas empresas, governos, negócios, aí vai ter muita inovação. O que muda é o meio, não a essência."</p>
           <span class="speaker-quote-attr">Laércio Cosentino</span>
         </div>
       </div>
       <div class="speaker-quote bruno">
-        <div class="speaker-quote-avatar">BC</div>
+        <div class="speaker-quote-avatar" style="background-image:url('../assets/speakers/bruno-camargo.jpg')" aria-label="Foto de Bruno Camargo"></div>
         <div class="speaker-quote-content">
           <p>"As empresas e as pessoas que vão ter sucesso depois desse ponto de inflexão são as que fazem essa mistura. Muitas vezes você precisa largar o computador, olhar pro céu, andar na natureza. As soluções já estão aí na sua frente."</p>
           <span class="speaker-quote-attr">Bruno Camargo</span>
