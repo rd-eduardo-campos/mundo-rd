@@ -941,6 +941,141 @@
     .colophon-bottom .colophon-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; }
     .colophon-bottom .colophon-meta span { display: inline-flex; align-items: center; gap: 6px; }
 
+    /* ===== As vozes desta edição ===== */
+    .voices {
+      padding: 5rem 0 4rem;
+      background: var(--bg-2);
+      position: relative;
+      overflow: hidden;
+    }
+    .voices::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 320px; height: 320px;
+      background-image: url('assets/bloco-circulos-lima.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: .22;
+      pointer-events: none;
+    }
+    .voices-head {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 3rem;
+      align-items: flex-end;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .voices-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4.5vw, 48px);
+      letter-spacing: -0.025em;
+      line-height: 1;
+    }
+    .voices-head h2 em { font-style: italic; color: var(--mrd-cyan-dark); }
+    .voices-head .lede {
+      font-size: 16px;
+      color: var(--ink-3);
+      line-height: 1.65;
+      max-width: 460px;
+    }
+    .voices-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      position: relative;
+      z-index: 1;
+    }
+    .voice-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.75rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      text-decoration: none;
+      color: inherit;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      min-height: 320px;
+    }
+    .voice-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 1px 2px rgba(15,15,18,0.04), 0 16px 36px rgba(15,15,18,0.10);
+      border-color: var(--mrd-cyan);
+      text-decoration: none;
+    }
+    .voice-photo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .voice-photo {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center top;
+      background-color: var(--mrd-petroleo);
+      flex-shrink: 0;
+      border: 2px solid var(--mrd-cyan);
+    }
+    .voice-card.mentoria .voice-photo { border-color: var(--mrd-lima); }
+    .voice-stage {
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--mrd-cyan-dark);
+      margin-bottom: 4px;
+    }
+    .voice-card.mentoria .voice-stage { color: var(--mrd-lima-dark); }
+    .voice-name {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 500;
+      letter-spacing: -0.012em;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+    .voice-role {
+      font-size: 12.5px;
+      color: var(--ink-3);
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+    .voice-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 19px;
+      line-height: 1.3;
+      letter-spacing: -0.012em;
+      color: var(--ink-2);
+      flex: 1;
+      margin: 0;
+      position: relative;
+      padding-left: 14px;
+      border-left: 3px solid var(--mrd-cyan);
+    }
+    .voice-card.mentoria .voice-quote { border-left-color: var(--mrd-lima); }
+    .voice-cta {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      color: var(--mrd-cyan-dark);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .voice-card.mentoria .voice-cta { color: var(--mrd-lima-dark); }
+    .voice-cta i { transition: transform .15s; }
+    .voice-card:hover .voice-cta i { transform: translateX(3px); }
+
     /* ===== Accessibility helpers ===== */
     .sr-only {
       position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
@@ -1019,6 +1154,14 @@
       .featured-body h3 { font-size: clamp(24px, 5.5vw, 30px); }
       .featured-body .dek { font-size: 15px; }
 
+      .voices { padding: 3rem 0 2.5rem; }
+      .voices::before { width: 200px; height: 200px; top: -50px; right: -60px; opacity: .18; }
+      .voices-head { grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1.75rem; }
+      .voices-head h2 { font-size: clamp(28px, 7vw, 38px); }
+      .voices-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .voice-card { min-height: auto; padding: 1.5rem 1.25rem 1.25rem; }
+      .voice-quote { font-size: 17px; }
+
       .seasons { padding: 3rem 0 2.5rem; }
       .seasons-head { grid-template-columns: 1fr; gap: 1rem; }
       .seasons-head h2 { font-size: clamp(32px, 8vw, 44px); }
@@ -1082,6 +1225,7 @@
       </a>
       <div class="masthead-links">
         <a class="masthead-link" href="#sumario">Sumário</a>
+        <a class="masthead-link" href="#vozes">Vozes</a>
         <a class="masthead-link" href="#palcos">Palcos</a>
         <a class="masthead-link" href="#ultimas">Últimas</a>
         <a class="masthead-link" href="#expediente">Expediente</a>
@@ -1186,6 +1330,100 @@
         <span class="featured-cta">Ler a matéria completa <i class="ti ti-arrow-right"></i></span>
       </div>
     </a>
+  </section>
+
+  <!-- ========================= AS VOZES ========================= -->
+  <section class="voices" id="vozes">
+    <div class="container">
+      <div class="voices-head">
+        <div>
+          <p class="kicker">As vozes</p>
+          <h2 class="display">As vozes <em>desta edição.</em></h2>
+        </div>
+        <p class="lede">Seis profissionais que abriram a edição com tese própria. Cada frase abaixo é a deles, registrada no palco e linkada para a matéria completa.</p>
+      </div>
+      <div class="voices-grid">
+
+        <a class="voice-card" href="palestras/martha-gabriel-pensamento-critico.html">
+          <div class="voice-photo-wrap">
+            <div class="voice-photo" style="background-image:url('assets/speakers/martha-gabriel.jpg')" aria-label="Foto de Martha Gabriel"></div>
+            <div>
+              <p class="voice-stage">Tendências</p>
+              <h3 class="voice-name">Martha Gabriel</h3>
+              <p class="voice-role">Futurista, autora e palestrante</p>
+            </div>
+          </div>
+          <blockquote class="voice-quote">A IA não tira relevância de ninguém. O que tira é falta de adaptabilidade.</blockquote>
+          <span class="voice-cta">Ler a matéria <i class="ti ti-arrow-right"></i></span>
+        </a>
+
+        <a class="voice-card" href="palestras/avelar-maryink-era-das-pessoas.html">
+          <div class="voice-photo-wrap">
+            <div class="voice-photo" style="background-image:url('assets/speakers/gustavo-avelar.jpg')" aria-label="Foto de Gustavo Avelar"></div>
+            <div>
+              <p class="voice-stage">Tendências</p>
+              <h3 class="voice-name">Gustavo Avelar</h3>
+              <p class="voice-role">CEO RD Station</p>
+            </div>
+          </div>
+          <blockquote class="voice-quote">A IA só é tão boa quanto a qualidade do seu dado. Quem cuida do dado proprietário hoje, ganha o jogo amanhã.</blockquote>
+          <span class="voice-cta">Ler a matéria <i class="ti ti-arrow-right"></i></span>
+        </a>
+
+        <a class="voice-card" href="palestras/avelar-maryink-era-das-pessoas.html">
+          <div class="voice-photo-wrap">
+            <div class="voice-photo" style="background-image:url('assets/speakers/rafael-maryink.jpg')" aria-label="Foto de Rafael Maryink"></div>
+            <div>
+              <p class="voice-stage">Tendências</p>
+              <h3 class="voice-name">Rafael Maryink</h3>
+              <p class="voice-role">Sócio fundador NP Digital Brasil</p>
+            </div>
+          </div>
+          <blockquote class="voice-quote">Pensem em multicanal e multi-formato, não em substituição.</blockquote>
+          <span class="voice-cta">Ler a matéria <i class="ti ti-arrow-right"></i></span>
+        </a>
+
+        <a class="voice-card mentoria" href="palestras/lideranca-era-ia-bial-laercio-bruno.html">
+          <div class="voice-photo-wrap">
+            <div class="voice-photo" style="background-image:url('assets/speakers/pedro-bial.jpeg')" aria-label="Foto de Pedro Bial"></div>
+            <div>
+              <p class="voice-stage">Mentoria aberta</p>
+              <h3 class="voice-name">Pedro Bial</h3>
+              <p class="voice-role">Jornalista, mediador da sessão</p>
+            </div>
+          </div>
+          <blockquote class="voice-quote">A democracia, assim como qualquer pensamento, se inaugura pela desconfiança.</blockquote>
+          <span class="voice-cta">Ler a matéria <i class="ti ti-arrow-right"></i></span>
+        </a>
+
+        <a class="voice-card mentoria" href="palestras/lideranca-era-ia-bial-laercio-bruno.html">
+          <div class="voice-photo-wrap">
+            <div class="voice-photo" style="background-image:url('assets/speakers/laercio-consentino.webp')" aria-label="Foto de Laércio Cosentino"></div>
+            <div>
+              <p class="voice-stage">Mentoria aberta</p>
+              <h3 class="voice-name">Laércio Cosentino</h3>
+              <p class="voice-role">Fundador da TOTVS</p>
+            </div>
+          </div>
+          <blockquote class="voice-quote">O que muda é o meio, não a essência.</blockquote>
+          <span class="voice-cta">Ler a matéria <i class="ti ti-arrow-right"></i></span>
+        </a>
+
+        <a class="voice-card mentoria" href="palestras/lideranca-era-ia-bial-laercio-bruno.html">
+          <div class="voice-photo-wrap">
+            <div class="voice-photo" style="background-image:url('assets/speakers/bruno-camargo.jpg')" aria-label="Foto de Bruno Camargo"></div>
+            <div>
+              <p class="voice-stage">Mentoria aberta</p>
+              <h3 class="voice-name">Bruno Camargo</h3>
+              <p class="voice-role">CEO Fairfax Brasil</p>
+            </div>
+          </div>
+          <blockquote class="voice-quote">O que importa controlar agora é propósito, valores, e como as decisões estão sendo tomadas.</blockquote>
+          <span class="voice-cta">Ler a matéria <i class="ti ti-arrow-right"></i></span>
+        </a>
+
+      </div>
+    </div>
   </section>
 
   <!-- ========================= SEÇÕES (PALCOS) ========================= -->
