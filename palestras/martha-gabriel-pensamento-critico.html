@@ -395,7 +395,24 @@
     .compare-col.ia h4 { color: var(--mrd-cyan-dark); }
     .compare-col.humano h4 { color: var(--mrd-roxo-dark); }
     .compare-col ul { list-style: none; padding: 0; margin: 0; }
-    .compare-col ul li { font-size: 14.5px; line-height: 1.7; color: var(--text-primary); padding: 4px 0; }
+    .compare-col ul li {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: var(--text-primary);
+      padding: 4px 0 4px 18px;
+      position: relative;
+    }
+    .compare-col ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.85em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--mrd-cyan);
+    }
+    .compare-col.humano ul li::before { background: var(--mrd-roxo); }
 
     /* Conteúdo relacionado */
     .related {
