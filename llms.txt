@@ -27,6 +27,8 @@
 - [Tendências](palcos/tendencias.html): Keynotes e masterclasses
 - [Mentoria aberta](palcos/mentoria-aberta.html): Conversas com executivos
 
+- [Press kit (imprensa)](imprensa.html): Boilerplate em três tamanhos, big numbers do evento, biblioteca de frases citáveis com atribuição pronta, fotos em alta dos palestrantes para download e contato direto com a assessoria de imprensa.
+
 ## Recursos
 - [Sumário (home)](index.html): Visão geral do hub
 - [Mapa do site](sitemap.xml): Lista completa de URLs indexadas
