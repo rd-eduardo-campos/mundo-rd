@@ -272,6 +272,23 @@
       align-items: center;
       gap: 6px;
     }
+    /* Em breve — palcos sem conteúdo publicado ainda */
+    .palco-card-coming {
+      background: var(--surface-2) !important;
+      color: var(--text-secondary);
+      cursor: default;
+    }
+    .palco-card-coming:hover { transform: none; box-shadow: none; }
+    .palco-card-coming .palco-card-pattern { opacity: 0.18; filter: grayscale(1); }
+    .palco-card-coming .palco-card-tag {
+      background: rgba(0,0,0,0.06);
+      color: var(--text-tertiary);
+      backdrop-filter: none;
+    }
+    .palco-card-coming h3 { color: var(--text-secondary); }
+    .palco-card-coming .palco-card-desc { color: var(--text-tertiary); }
+    .palco-card-coming .palco-card-meta { color: var(--text-tertiary); }
+    .palco-card-coming .palco-card-meta i { opacity: .7; }
 
     /* ---------- Palestras list ---------- */
     .palestras-list { display: flex; flex-direction: column; gap: 14px; }
@@ -438,8 +455,8 @@
     <div class="about-grid">
       <div class="about-card">
         <p class="num">01</p>
-        <h3>Estruturado por palco</h3>
-        <p>Tendências, Prisma, Imersão, Cocriação e Mentoria aberta — cada palco tem seu próprio jeito de organizar a informação.</p>
+        <h3>Organizado por palco</h3>
+        <p>Cinco palcos, cinco propósitos. Cada um tem seu próprio jeito de organizar a informação para você encontrar exatamente o que procura.</p>
       </div>
       <div class="about-card">
         <p class="num">02</p>
@@ -463,53 +480,53 @@
     </div>
     <div class="palcos-grid">
 
-      <a class="palco-card" href="#" style="background-color: var(--mrd-cyan-dark);">
+      <a class="palco-card" href="palcos/tendencias.html" style="background-color: var(--mrd-cyan-dark);">
         <div class="palco-card-pattern" style="background-image: url('assets/bloco-semicirculos-cyan.png');"></div>
         <div class="palco-card-body">
           <span class="palco-card-tag">Keynotes &amp; Masterclasses</span>
           <h3>Tendências</h3>
-          <p class="palco-card-desc">Palestras inspiracionais e masterclasses. Keynotes que abrem cada dia e aprofundamentos com especialistas.</p>
-          <span class="palco-card-meta">13 palestras <i class="ti ti-arrow-right"></i></span>
+          <p class="palco-card-desc">As leituras de quem está olhando o mercado de fora. Palestras inspiracionais para abrir o pensamento e masterclasses para aprofundar com especialistas.</p>
+          <span class="palco-card-meta">Explorar palestras <i class="ti ti-arrow-right"></i></span>
         </div>
       </a>
 
-      <a class="palco-card" href="#" style="background-color: var(--mrd-roxo-dark);">
+      <div class="palco-card palco-card-coming">
         <div class="palco-card-pattern" style="background-image: url('assets/bloco-concentricos-roxo.png');"></div>
         <div class="palco-card-body">
-          <span class="palco-card-tag">Produto RD · Sensível</span>
+          <span class="palco-card-tag">Plataforma RD Station</span>
           <h3>Prisma</h3>
-          <p class="palco-card-desc">As novidades do produto RD Station. Conteúdo com aprovação dupla do time de produto.</p>
-          <span class="palco-card-meta">11 palestras <i class="ti ti-arrow-right"></i></span>
+          <p class="palco-card-desc">Tudo o que vem por aí na plataforma RD Station. Anúncios, novidades e novas experiências de produto, apresentados pelo time da RD.</p>
+          <span class="palco-card-meta">Em breve <i class="ti ti-clock"></i></span>
         </div>
-      </a>
+      </div>
 
-      <a class="palco-card" href="#" style="background-color: var(--mrd-lima-dark);">
+      <div class="palco-card palco-card-coming">
         <div class="palco-card-pattern" style="background-image: url('assets/bloco-arcos-lima.png');"></div>
         <div class="palco-card-body">
-          <span class="palco-card-tag">Cases</span>
+          <span class="palco-card-tag">Histórias de cliente</span>
           <h3>Imersão</h3>
-          <p class="palco-card-desc">Cases de cliente estruturados em dor → solução → resultado. Os números são o ativo.</p>
-          <span class="palco-card-meta">4 palestras <i class="ti ti-arrow-right"></i></span>
+          <p class="palco-card-desc">Histórias reais de quem usa RD Station no dia a dia. Como começaram, o que mudou no negócio e os números que comprovam.</p>
+          <span class="palco-card-meta">Em breve <i class="ti ti-clock"></i></span>
         </div>
-      </a>
+      </div>
 
-      <a class="palco-card" href="#" style="background-color: var(--mrd-lima-dark);">
+      <div class="palco-card palco-card-coming">
         <div class="palco-card-pattern" style="background-image: url('assets/bloco-circulos-lima.png');"></div>
         <div class="palco-card-body">
-          <span class="palco-card-tag">Cases</span>
+          <span class="palco-card-tag">Construído junto</span>
           <h3>Cocriação</h3>
-          <p class="palco-card-desc">Mesmo formato da Imersão, com cases trabalhados em conjunto entre cliente e RD.</p>
-          <span class="palco-card-meta">3 palestras <i class="ti ti-arrow-right"></i></span>
+          <p class="palco-card-desc">Histórias construídas em parceria entre cliente e RD Station. Como a relação evoluiu e o que vem depois.</p>
+          <span class="palco-card-meta">Em breve <i class="ti ti-clock"></i></span>
         </div>
-      </a>
+      </div>
 
-      <a class="palco-card" href="#" style="background-color: var(--mrd-petroleo-2);">
+      <a class="palco-card" href="palcos/mentoria-aberta.html" style="background-color: var(--mrd-petroleo-2);">
         <div class="palco-card-pattern" style="background-image: url('assets/bloco-semicirculos-lima.png');"></div>
         <div class="palco-card-body">
-          <span class="palco-card-tag">Mentoria</span>
+          <span class="palco-card-tag">Conversa com executivos</span>
           <h3>Mentoria aberta</h3>
-          <p class="palco-card-desc">Mentoria conduzida por executivos. Pergunta do público, resposta direta e prática.</p>
-          <span class="palco-card-meta">5 sessões <i class="ti ti-arrow-right"></i></span>
+          <p class="palco-card-desc">Mentoria conduzida por executivos que já passaram por onde você está agora. Pergunta direta, resposta prática.</p>
+          <span class="palco-card-meta">Explorar sessões <i class="ti ti-arrow-right"></i></span>
         </div>
       </a>
 
@@ -555,36 +572,6 @@
         <span class="palestra-time">há 1h</span>
       </a>
 
-      <a class="palestra-row" href="#">
-        <div class="palestra-thumb" style="background-image: url('assets/bloco-semicirculos-cyan.png');"></div>
-        <div class="palestra-info">
-          <span class="palestra-palco">Tendências</span>
-          <h3 class="palestra-title">Conteúdo pro seu público e para IA</h3>
-          <span class="palestra-speaker">Wil Reynolds · CEO Seer Interactive</span>
-        </div>
-        <span class="palestra-time">há 2h</span>
-      </a>
-
-      <a class="palestra-row" href="#">
-        <div class="palestra-thumb" style="background-image: url('assets/bloco-concentricos-roxo.png');"></div>
-        <div class="palestra-info">
-          <span class="palestra-palco">Prisma</span>
-          <h3 class="palestra-title">Tudo conectado: a nova experiência da plataforma RD Station</h3>
-          <span class="palestra-speaker">Filipe Fonseca · RD Station</span>
-        </div>
-        <span class="palestra-time">há 1h</span>
-      </a>
-
-      <a class="palestra-row" href="#">
-        <div class="palestra-thumb" style="background-image: url('assets/bloco-triangulos-cyan.png');"></div>
-        <div class="palestra-info">
-          <span class="palestra-palco">Tendências</span>
-          <h3 class="palestra-title">Seu cliente já decidiu antes de pesquisar: como existir onde a descoberta acontece</h3>
-          <span class="palestra-speaker">André Siqueira</span>
-        </div>
-        <span class="palestra-time">há 2h</span>
-      </a>
-
     </div>
   </section>
 
@@ -595,8 +582,6 @@
       <div class="brand-footer-text">
         Hub de conteúdo · 3–5 agosto 2026 · Costão do Santinho, Florianópolis<br>
         <a href="https://mundo.rdstation.com/" target="_blank" rel="noopener">mundo.rdstation.com</a>
-        &nbsp;·&nbsp;
-        <a href="../processo-operacional.html">processo operacional</a>
       </div>
     </div>
   </footer>
